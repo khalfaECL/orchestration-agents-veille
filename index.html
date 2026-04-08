@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" data-theme="dark">
+<html lang="fr" data-theme="light">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
@@ -110,6 +110,28 @@ body{
   z-index:1001;
   transition:width 0.1s;
   box-shadow:0 0 12px var(--accent);
+}
+.toc{
+position:fixed;
+top:120px;
+left:24px;
+display:flex;
+flex-direction:column;
+gap:8px;
+font-size:0.8rem;
+z-index:900;
+}
+
+.toc a{
+color:var(--muted);
+text-decoration:none;
+padding:4px 8px;
+border-left:2px solid transparent;
+}
+
+.toc a.active{
+color:var(--accent2);
+border-color:var(--accent2);
 }
 
 /* ═══════════════════════════════════════
@@ -766,6 +788,10 @@ footer p strong{color:var(--text)}
   .stat-card{min-width:120px;padding:14px 18px}
   .patterns-tabs{overflow-x:auto}
 }
+
+
+
+
 </style>
 </head>
 <body>
@@ -779,21 +805,32 @@ footer p strong{color:var(--text)}
 <!-- ═══════════════════ NAVBAR ═══════════════════ -->
 <nav class="navbar" id="navbar">
   <div class="nav-logo">🤖 Orchestration Agents</div>
-  <ul class="nav-links">
+  <!--ul class="nav-links">
     <li><a href="#intro">Concepts</a></li>
     <li><a href="#architectures">Architectures</a></li>
     <li><a href="#swarm">Essaim</a></li>
     <li><a href="#frameworks">Outils</a></li>
     <li><a href="#evolution">Évolution</a></li>
+    <li><a href="#importance">Marché</a></li>
     <li><a href="#defis">Limites</a></li>
     <li><a href="#methodologie">Méthodologie</a></li>
     <li><a href="#sources">Sources</a></li>
-  </ul>
+  </ul-->
   <div class="nav-actions">
     <button class="theme-btn" id="themeBtn" title="Changer le thème">🌙</button>
   </div>
 </nav>
-
+<nav class="toc">
+  <a href="#intro">Concepts</a>
+  <a href="#architectures">Architectures</a>
+  <!-- <a href="#comparaison">Comparaison</a> -->
+  <a href="#swarm">Swarm</a>
+  <a href="#frameworks">Frameworks</a>
+  <a href="#importance">Marché</a>
+  <a href="#defis">Limites</a>
+  <a href="#methodologie">Méthodologie</a>
+  <a href="#sources">Sources</a>
+</nav>
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <section class="hero" id="home">
   <div class="hero-inner">
@@ -857,8 +894,60 @@ footer p strong{color:var(--text)}
       </div>
     </div>
   </div>
-</section>
 
+
+
+
+
+</section>
+<section id="systeme">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-eyebrow">Vue système</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Architecture d’un système agentique</h2>
+      <p class="section-desc">
+        Dans un système réel, les agents ne travaillent pas seuls.
+        Ils interagissent avec des outils, des données et des utilisateurs.
+      </p>
+    </div>
+
+    <div class="pattern-display">
+
+      <div class="flow-visual">
+
+        <div class="flow-node">Utilisateur</div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node alt">Orchestrateur</div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node alt2">Agents spécialisés</div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node">Outils</div>
+
+        <div class="flow-arrow">↓</div>
+
+        <div class="flow-node" style="background:var(--green)">
+          APIs / DB / Services
+        </div>
+
+      </div>
+
+      <div class="arch-conclusion">
+        L’orchestrateur coordonne les agents, les agents utilisent des outils 
+        externes, et le système interagit avec un environnement réel.
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <!-- ═══════════════════ ARCHITECTURES ═══════════════════ -->
 <section id="architectures" style="background:var(--bg2)">
   <div class="container">
@@ -988,7 +1077,62 @@ footer p strong{color:var(--text)}
     </div>
   </div>
 </section>
+<section id="comparaison" style="background:var(--bg)">
+  <div class="container">
 
+    <div class="section-header">
+      <div class="section-eyebrow">Comparaison</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Comparer les architectures d’orchestration</h2>
+      <p class="section-desc">
+        Les trois paradigmes ne sont pas bons ou mauvais. 
+        Ils répondent simplement à des contraintes différentes : 
+        contrôle, scalabilité ou résilience.
+      </p>
+    </div>
+
+    <div class="fw-grid">
+
+      <div class="fw-card">
+        <h3>Centralisée</h3>
+        <p><strong>Principe :</strong> un orchestrateur unique contrôle les agents.</p>
+
+        <div class="pros-cons">
+          <div class="pro-item">✓ Contrôle complet</div>
+          <div class="pro-item">✓ Débogage simple</div>
+          <div class="con-item">✗ Point unique de défaillance</div>
+          <div class="con-item">✗ Scalabilité limitée</div>
+        </div>
+      </div>
+
+      <div class="fw-card">
+        <h3>Hiérarchique</h3>
+        <p><strong>Principe :</strong> plusieurs niveaux d'orchestrateurs.</p>
+
+        <div class="pros-cons">
+          <div class="pro-item">✓ Scalabilité</div>
+          <div class="pro-item">✓ Modularité</div>
+          <div class="con-item">✗ Coordination complexe</div>
+          <div class="con-item">✗ Risque de divergence</div>
+        </div>
+      </div>
+
+      <div class="fw-card">
+        <h3>Décentralisée</h3>
+        <p><strong>Principe :</strong> agents autonomes qui coopèrent.</p>
+
+        <div class="pros-cons">
+          <div class="pro-item">✓ Très robuste</div>
+          <div class="pro-item">✓ Très scalable</div>
+          <div class="con-item">✗ Coordination difficile</div>
+          <div class="con-item">✗ Audit compliqué</div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
 <!-- ═══════════════════ SWARM ═══════════════════ -->
 <section id="swarm">
   <div class="container">
@@ -1162,6 +1306,92 @@ footer p strong{color:var(--text)}
         </div>
       </div>
     </div>
+  </div>
+</section>
+<section id="protocoles" style="background:var(--bg2)">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-eyebrow">Interopérabilité</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Protocoles de communication entre agents</h2>
+      <p class="section-desc">
+        Pour que des agents hétérogènes puissent collaborer, 
+        plusieurs protocoles émergent pour standardiser les échanges.
+      </p>
+    </div>
+
+    <div class="fw-grid">
+
+      <div class="fw-card">
+        <h3>MCP</h3>
+        <p>Model Context Protocol : standard pour connecter les LLM à des outils et bases de données.</p>
+      </div>
+
+      <div class="fw-card">
+        <h3>ACP</h3>
+        <p>Agent Communication Protocol : protocole d’échange de messages entre agents.</p>
+      </div>
+
+      <div class="fw-card">
+        <h3>A2A</h3>
+        <p>Agent-to-Agent protocol : standard pour déléguer des tâches entre agents.</p>
+      </div>
+
+      <div class="fw-card">
+        <h3>ANP</h3>
+        <p>Agent Network Protocol : infrastructure pour réseaux d’agents distribués.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="importance">
+  <div class="container">
+
+    <div class="section-header">
+      <div class="section-eyebrow">Importance</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Pourquoi ce sujet devient central</h2>
+      <p class="section-desc">
+        L’IA évolue d’un modèle conversationnel vers des systèmes capables 
+        d’agir et de déclencher des workflows.
+      </p>
+    </div>
+
+    <div class="definition-grid">
+
+      <div class="def-card">
+        <div class="def-icon">⚙️</div>
+        <h3>Automatisation intelligente</h3>
+        <p>
+          Les agents peuvent planifier des étapes, utiliser des outils
+          et automatiser des tâches complexes.
+        </p>
+      </div>
+
+      <div class="def-card">
+        <div class="def-icon">💼</div>
+        <h3>Adoption industrielle</h3>
+        <p>
+          Entreprises et startups développent des assistants capables
+          d'exécuter des processus métiers complets.
+        </p>
+      </div>
+
+      <div class="def-card">
+        <div class="def-icon">📈</div>
+        <h3>Marché en croissance</h3>
+        <p>
+          Le marché de l’Agentic AI pourrait atteindre plusieurs dizaines
+          de milliards de dollars d’ici 2030.
+        </p>
+      </div>
+
+    </div>
+
   </div>
 </section>
 
@@ -1479,6 +1709,11 @@ window.addEventListener('scroll',()=>{
     a.classList.toggle('active',a.getAttribute('href')==='#'+cur);
   });
 },{ passive:true });
+
+
+
+
+
 </script>
 </body>
 </html>
