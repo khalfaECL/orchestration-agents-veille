@@ -410,6 +410,49 @@ section{padding:96px 0;position:relative;z-index:1}
 .pro-item{background:rgba(16,185,129,0.08);color:var(--green);border:1px solid rgba(16,185,129,0.15)}
 .con-item{background:rgba(239,68,68,0.08);color:var(--red);border:1px solid rgba(239,68,68,0.15)}
 
+/* ARCH CONCLUSION / VERDICT */
+.arch-conclusion{
+  background:var(--bg2);
+  border-left:3px solid var(--accent2);
+  border-radius:0 8px 8px 0;
+  padding:14px 18px;
+  font-size:0.88rem;color:var(--muted);
+  margin:20px 0;line-height:1.7;
+}
+.arch-verdict{
+  margin-top:16px;
+  padding:12px 16px;
+  background:rgba(124,58,237,0.08);
+  border-radius:8px;
+  font-size:0.85rem;color:var(--accent2);
+  font-style:italic;
+}
+
+/* SWARM SECTION */
+.swarm-main{display:flex;flex-direction:column;gap:40px}
+.swarm-analogy{
+  display:flex;gap:24px;align-items:flex-start;
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px 32px;
+}
+.swarm-analogy-icon{font-size:3rem;flex-shrink:0}
+.swarm-analogy h3{font-size:1.1rem;font-weight:700;margin-bottom:10px}
+.swarm-analogy p{font-size:0.9rem;color:var(--muted);line-height:1.8}
+.swarm-cases{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.swarm-case-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;
+}
+.swarm-case-header{display:flex;gap:16px;align-items:flex-start;margin-bottom:16px}
+.swarm-case-icon{font-size:2rem;flex-shrink:0}
+.swarm-case-name{font-weight:700;font-size:0.95rem;margin-bottom:4px}
+.swarm-case-type{font-size:0.78rem;color:var(--accent2);font-weight:600;text-transform:uppercase;letter-spacing:0.5px}
+.swarm-case-card p{font-size:0.87rem;color:var(--muted);line-height:1.7}
+@media(max-width:640px){
+  .swarm-cases{grid-template-columns:1fr}
+  .swarm-analogy{flex-direction:column}
+}
+
 /* ═══════════════════════════════════════
    FRAMEWORKS GRID
 ═══════════════════════════════════════ */
@@ -703,14 +746,14 @@ footer p strong{color:var(--text)}
 
 <!-- ═══════════════════ NAVBAR ═══════════════════ -->
 <nav class="navbar" id="navbar">
-  <div class="nav-logo">🤖 Agents IA</div>
+  <div class="nav-logo">🤖 Orchestration Agents</div>
   <ul class="nav-links">
-    <li><a href="#intro">Intro</a></li>
-    <li><a href="#concepts">Concepts</a></li>
+    <li><a href="#intro">Concepts</a></li>
     <li><a href="#architectures">Architectures</a></li>
-    <li><a href="#frameworks">Frameworks</a></li>
+    <li><a href="#swarm">Essaim</a></li>
+    <li><a href="#frameworks">Outils</a></li>
     <li><a href="#evolution">Évolution</a></li>
-    <li><a href="#defis">Défis</a></li>
+    <li><a href="#defis">Limites</a></li>
     <li><a href="#methodologie">Méthodologie</a></li>
     <li><a href="#sources">Sources</a></li>
   </ul>
@@ -723,14 +766,14 @@ footer p strong{color:var(--text)}
 <section class="hero" id="home">
   <div class="hero-inner">
     <div class="hero-badge"><span class="dot"></span>MOS 4.4 · NTIC · Veille Technologique</div>
-    <h1>Orchestration des<br><span class="gradient">Agents IA</span></h1>
+    <h1>Orchestration des<br><span class="gradient">Agents</span></h1>
     <p class="hero-subtitle">
-      Comment coordonner des agents autonomes pour résoudre des problèmes complexes que nul modèle seul ne pourrait accomplir ?
+      Du centralisé au décentralisé — comment coordonner des agents autonomes : qui fait quoi, dans quel ordre, avec quel niveau de contrôle.
     </p>
     <div class="hero-stats">
-      <div class="stat-card"><span class="stat-number" data-target="60">0</span><span class="stat-label">% des apps IA en prod utilisent des agents</span></div>
-      <div class="stat-card"><span class="stat-number" data-target="6">0</span><span class="stat-label">Frameworks majeurs étudiés</span></div>
-      <div class="stat-card"><span class="stat-number" data-target="5">0</span><span class="stat-label">Patterns d'architecture</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="3">0</span><span class="stat-label">Paradigmes fondamentaux</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="6">0</span><span class="stat-label">Frameworks LLM étudiés</span></div>
+      <div class="stat-card"><span class="stat-number" data-target="47">0</span><span class="stat-label">Md$ marché agentic IA 2030</span></div>
       <div class="stat-card"><span class="stat-number" data-target="2025">0</span><span class="stat-label">Année de maturité industrielle</span></div>
     </div>
     <div class="hero-cta">
@@ -745,32 +788,32 @@ footer p strong{color:var(--text)}
 <section id="intro">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Introduction</div>
+      <div class="section-eyebrow">Contexte & Définitions</div>
       <div class="glow-line"></div>
-      <h2 class="section-title">Qu'est-ce que l'orchestration des agents ?</h2>
-      <p class="section-desc">Un paradigme architectural qui transforme la façon dont les systèmes IA résolvent des problèmes complexes.</p>
+      <h2 class="section-title">Agents, multi-agents, orchestration</h2>
+      <p class="section-desc">Derrière DeepSearch, les chatbots e-commerce, l'automatisation des mails — on trouve de plus en plus des agents. La vraie question : comment les orchestrer.</p>
     </div>
 
     <div class="definition-grid">
       <div class="def-card reveal delay-1">
         <div class="def-icon">🤖</div>
-        <h3>L'Agent IA</h3>
-        <p>Entité autonome qui perçoit son environnement, raisonne et exécute des actions via des <strong>outils</strong> (API, code, recherche…). Sa boucle centrale : Observe → Think → Act.</p>
+        <h3>L'Agent Logiciel</h3>
+        <p>Composant <strong>autonome</strong> qui perçoit un état (capteurs, logs, messages, données), prend une décision selon des règles, puis agit via des interfaces : <strong>API, base de données, système de fichiers, réseau</strong>.</p>
       </div>
       <div class="def-card reveal delay-2">
-        <div class="def-icon">🎯</div>
-        <h3>L'Orchestrateur</h3>
-        <p>Composant central qui <strong>décompose</strong> les tâches de haut niveau, <strong>délègue</strong> aux bons agents, gère l'état global et <strong>synthétise</strong> les résultats finaux.</p>
+        <div class="def-icon">🔗</div>
+        <h3>Système Multi-Agents</h3>
+        <p>Quand on a plusieurs agents, chacun peut être <strong>spécialisé</strong>. Mais ils doivent éviter les doublons et les contradictions. C'est là qu'intervient l'orchestration.</p>
       </div>
       <div class="def-card reveal delay-3">
-        <div class="def-icon">🧠</div>
-        <h3>Mémoire & État</h3>
-        <p>Mémoire <strong>contextuelle</strong> (conversation), <strong>épisodique</strong> (résumés passés), <strong>sémantique</strong> (base vectorielle) et <strong>procédurale</strong> (outils mémorisés).</p>
+        <div class="def-icon">🎯</div>
+        <h3>L'Orchestration</h3>
+        <p>Ce qui organise la collaboration entre agents — <strong>qui fait quoi, quand, avec quelles infos</strong> — et comment on évite les erreurs, gère les priorités, les validations, les conflits.</p>
       </div>
       <div class="def-card reveal delay-4">
         <div class="def-icon">🔌</div>
         <h3>Protocoles MCP & A2A</h3>
-        <p><strong>MCP</strong> (Anthropic, nov. 2024) uniformise la connexion agents ↔ outils. <strong>A2A</strong> (Google, 2025) standardise la collaboration inter-agents : Agent Cards, délégation de tâches, streaming d'exécution.</p>
+        <p><strong>MCP</strong> (Anthropic, 2024) uniformise la connexion agents ↔ outils. <strong>A2A</strong> (Google, 2025) standardise la collaboration inter-agents : Agent Cards, délégation structurée, streaming.</p>
       </div>
     </div>
 
@@ -786,8 +829,8 @@ footer p strong{color:var(--text)}
     </div>
 
     <div class="quote-block reveal">
-      <p>L'orchestration des agents IA représente le passage d'un modèle unique omniscient à un <strong>écosystème collaboratif</strong> d'agents spécialisés, chacun expert dans son domaine, coordonnés vers un objectif commun.</p>
-      <div class="quote-source">Littérature sur les systèmes multi-agents LLM, 2023–2025</div>
+      <p>On est en train de passer d'une <strong>IA qui répond</strong> à une <strong>IA qui exécute</strong> : au lieu d'un simple chatbot, on a des systèmes capables de planifier des étapes et de déclencher des actions dans des outils métier. La question n'est plus "est-ce que ça marche", mais <strong>comment on le rend fiable</strong> — et quel paradigme d'orchestration choisir selon le contexte.</p>
+      <div class="quote-source">INTRO.txt — Veille MOS 4.4, École Centrale de Lyon, 2025–2026</div>
     </div>
   </div>
 </section>
@@ -798,174 +841,167 @@ footer p strong{color:var(--text)}
     <div class="section-header reveal">
       <div class="section-eyebrow">Architectures</div>
       <div class="glow-line"></div>
-      <h2 class="section-title">5 Patterns d'Orchestration</h2>
-      <p class="section-desc">Chaque architecture répond à des besoins différents en termes de complexité, de parallélisme et de contrôle.</p>
+      <h2 class="section-title">Du Centralisé au Décentralisé</h2>
+      <p class="section-desc">Trois paradigmes fondamentaux — chacun répond à un compromis différent entre contrôle, scalabilité et résilience.</p>
     </div>
 
     <div class="patterns-tabs reveal">
-      <button class="tab-btn active" data-tab="sequential">→ Séquentiel</button>
-      <button class="tab-btn" data-tab="parallel">⚡ Parallèle</button>
+      <button class="tab-btn active" data-tab="centralized">🏛️ Centralisée</button>
       <button class="tab-btn" data-tab="hierarchical">🌲 Hiérarchique</button>
-      <button class="tab-btn" data-tab="reflection">🔁 Réflexion</button>
-      <button class="tab-btn" data-tab="graph">🌐 Graphe (DAG)</button>
-      <button class="tab-btn" data-tab="swarm">🐜 Essaim</button>
+      <button class="tab-btn" data-tab="decentralized">🔗 Décentralisée</button>
+      <button class="tab-btn" data-tab="llmpatterns">⚙️ Patterns LLM</button>
     </div>
 
-    <div class="tab-panel active" id="tab-sequential">
+    <div class="tab-panel active" id="tab-centralized">
       <div class="pattern-display">
-        <div class="pattern-title">Pipeline Séquentiel <span class="pattern-tag">Simple</span></div>
-        <p class="pattern-desc">Les agents s'activent les uns après les autres. La sortie de l'un devient l'entrée du suivant. Idéal pour les flux de traitement linéaires.</p>
+        <div class="pattern-title">Orchestration Centralisée <span class="pattern-tag">Contrôle total</span></div>
+        <p class="pattern-desc">Le modèle le plus simple : un orchestrateur unique reçoit la demande, découpe le travail, assigne les tâches aux agents, puis rassemble les résultats. <strong>Un seul cerveau au centre</strong>, les agents exécutent.</p>
         <div class="flow-visual">
           <div class="flow-node">Orchestrateur</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node alt">Agent Recherche</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node alt">Agent Analyse</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node alt2">Agent Rédaction</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node" style="background:var(--green)">Résultat</div>
-        </div>
-        <div class="pros-cons">
-          <div class="pro-item">✓ Simple à implémenter et déboguer</div>
-          <div class="pro-item">✓ Flux de données prévisible</div>
-          <div class="con-item">✗ Lent — pas de parallélisme</div>
-          <div class="con-item">✗ Erreur en cascade si un agent échoue</div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-panel" id="tab-parallel">
-      <div class="pattern-display">
-        <div class="pattern-title">Fan-out / Fan-in Parallèle <span class="pattern-tag">Rapide</span></div>
-        <p class="pattern-desc">L'orchestrateur distribue plusieurs sous-tâches simultanément. Réduit considérablement le temps de traitement sur les tâches indépendantes.</p>
-        <div class="flow-visual" style="flex-direction:column;gap:12px">
-          <div class="flow-node">Orchestrateur (Fan-out)</div>
-          <div style="display:flex;gap:16px;justify-content:center">
-            <div class="flow-arrow" style="transform:rotate(45deg)">↓</div>
-            <div class="flow-arrow">↓</div>
-            <div class="flow-arrow" style="transform:rotate(-45deg)">↓</div>
+          <div style="display:flex;flex-direction:column;gap:6px;align-items:center">
+            <div class="flow-arrow">→</div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-arrow">→</div>
           </div>
-          <div style="display:flex;gap:16px">
+          <div style="display:flex;flex-direction:column;gap:8px">
             <div class="flow-node alt">Agent A</div>
             <div class="flow-node alt">Agent B</div>
             <div class="flow-node alt">Agent C</div>
           </div>
-          <div class="flow-arrow">↓</div>
-          <div class="flow-node alt2">Agrégateur (Fan-in)</div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-node" style="background:var(--green)">Résultat agrégé</div>
         </div>
+        <div class="arch-conclusion">L'orchestrateur maintient l'état global (contexte, priorités, dépendances), décide l'ordre d'exécution, contrôle les entrées/sorties et peut imposer des validations avant de continuer.</div>
         <div class="pros-cons">
-          <div class="pro-item">✓ Très rapide sur tâches indépendantes</div>
-          <div class="pro-item">✓ Scalable horizontalement</div>
-          <div class="con-item">✗ Gestion complexe des résultats partiels</div>
-          <div class="con-item">✗ Risque de conflits sur l'état partagé</div>
+          <div class="pro-item">✓ Traçabilité complète des flux décisionnels</div>
+          <div class="pro-item">✓ Débogage plus facile — un seul endroit à inspecter</div>
+          <div class="pro-item">✓ Moins de contradictions entre agents</div>
+          <div class="con-item">✗ Latence et saturation si surcharge du centre</div>
+          <div class="con-item">✗ Point unique de défaillance — si l'orchestrateur tombe, tout s'arrête</div>
         </div>
+        <div class="arch-verdict">Idéal pour prédictibilité et contrôle. Fragile dès qu'on cherche scalabilité et résilience.</div>
       </div>
     </div>
     <div class="tab-panel" id="tab-hierarchical">
       <div class="pattern-display">
-        <div class="pattern-title">Hiérarchique Manager/Worker <span class="pattern-tag">Entreprise</span></div>
-        <p class="pattern-desc">Un agent manager supervise des workers spécialisés. Permet une décomposition récursive des tâches complexes.</p>
+        <div class="pattern-title">Orchestration Hiérarchique <span class="pattern-tag">Compromis</span></div>
+        <p class="pattern-desc">Compromis entre contrôle et passage à l'échelle. On organise les agents en niveaux : un superviseur pilote la mission globale, des sous-orchestrateurs gèrent des sous-parties du travail.</p>
         <div class="flow-visual" style="flex-direction:column;gap:12px">
-          <div class="flow-node">CEO Agent</div>
-          <div style="display:flex;gap:32px">
+          <div class="flow-node">Superviseur (objectifs, contraintes, priorités)</div>
+          <div style="display:flex;gap:32px;justify-content:center">
             <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
               <div class="flow-arrow">↓</div>
-              <div class="flow-node alt">Manager A</div>
+              <div class="flow-node alt">Sous-orchestrateur A</div>
               <div style="display:flex;gap:8px">
-                <div class="flow-node alt2" style="font-size:0.75rem">Worker 1</div>
-                <div class="flow-node alt2" style="font-size:0.75rem">Worker 2</div>
+                <div class="flow-node alt2" style="font-size:0.75rem">Agent 1</div>
+                <div class="flow-node alt2" style="font-size:0.75rem">Agent 2</div>
               </div>
             </div>
             <div style="display:flex;flex-direction:column;align-items:center;gap:8px">
               <div class="flow-arrow">↓</div>
-              <div class="flow-node alt">Manager B</div>
+              <div class="flow-node alt">Sous-orchestrateur B</div>
               <div style="display:flex;gap:8px">
-                <div class="flow-node alt2" style="font-size:0.75rem">Worker 3</div>
-                <div class="flow-node alt2" style="font-size:0.75rem">Worker 4</div>
+                <div class="flow-node alt2" style="font-size:0.75rem">Agent 3</div>
+                <div class="flow-node alt2" style="font-size:0.75rem">Agent 4</div>
               </div>
             </div>
           </div>
         </div>
+        <div class="arch-conclusion">Le niveau du haut fixe les objectifs. Le bas exécute et prend des décisions locales. Les informations remontent : avancement, alertes, conflits, métriques.</div>
         <div class="pros-cons">
-          <div class="pro-item">✓ Structure claire sur tâches très complexes</div>
-          <div class="pro-item">✓ Délégation naturelle des responsabilités</div>
-          <div class="con-item">✗ Goulot d'étranglement au niveau CEO</div>
-          <div class="con-item">✗ Latence due aux niveaux d'indirection</div>
+          <div class="pro-item">✓ Scalabilité : travail réparti, moins de surcharge sur un seul point</div>
+          <div class="pro-item">✓ Modularité : ajouter une "équipe" d'agents sans refaire le système</div>
+          <div class="con-item">✗ Cohérence entre niveaux difficile à garantir</div>
+          <div class="con-item">✗ Si le haut donne des objectifs trop vagues → divergences au bas</div>
+        </div>
+        <div class="arch-verdict">Mécanismes nécessaires : règles de délégation, critères de succès, remontée d'état, gestion des conflits.</div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-decentralized">
+      <div class="pattern-display">
+        <div class="pattern-title">Orchestration Décentralisée <span class="pattern-tag">Résilience</span></div>
+        <p class="pattern-desc">Pas de "chef" unique. Chaque agent agit avec ce qu'il sait localement. La coordination se fait par échanges directs entre agents, plutôt que par un plan imposé au centre.</p>
+        <div class="flow-visual" style="flex-wrap:wrap;gap:16px;justify-content:center">
+          <div class="flow-node alt">Agent A ↔</div>
+          <div class="flow-node alt">↔ Agent B ↔</div>
+          <div class="flow-node alt">↔ Agent C</div>
+          <div style="width:100%;text-align:center;color:var(--muted);font-size:0.8rem">Coordination par négociation, consensus, ou enchères de tâches</div>
+        </div>
+        <div class="arch-conclusion">Chaque agent observe son environnement, partage l'essentiel avec ses voisins (état, contraintes), et ils s'ajustent entre eux. La cohérence <strong>émerge</strong> des interactions locales.</div>
+        <div class="pros-cons">
+          <div class="pro-item">✓ Très robuste : si un agent tombe, le reste continue</div>
+          <div class="pro-item">✓ Scalable : on ajoute des agents sans goulot central</div>
+          <div class="pro-item">✓ Réactif : décisions prises directement au bon endroit</div>
+          <div class="con-item">✗ Doublons, contradictions, oscillations possibles</div>
+          <div class="con-item">✗ Très difficile à diagnostiquer : pas d'endroit unique pour inspecter</div>
+        </div>
+        <div class="arch-verdict">Prix à payer : il faut reconstruire toute la chaîne d'interactions pour comprendre un échec.</div>
+      </div>
+    </div>
+    <div class="tab-panel" id="tab-llmpatterns">
+      <div class="pattern-display">
+        <div class="pattern-title">Patterns d'Implémentation LLM <span class="pattern-tag">Appliqué</span></div>
+        <p class="pattern-desc">Les 3 paradigmes se déclinent en patterns concrets pour les agents LLM. Les frameworks comme LangGraph, AutoGen et CrewAI implémentent ces patterns.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
+          <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
+            <div style="font-weight:700;margin-bottom:6px">→ Pipeline Séquentiel</div>
+            <div style="font-size:0.82rem;color:var(--muted)">Agents en chaîne, sortie → entrée suivante. Simple, prévisible. Base du prompt chaining.</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
+            <div style="font-weight:700;margin-bottom:6px">⚡ Fan-out / Fan-in Parallèle</div>
+            <div style="font-size:0.82rem;color:var(--muted)">L'orchestrateur distribue des sous-tâches simultanément puis agrège. Rapide sur tâches indépendantes.</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
+            <div style="font-weight:700;margin-bottom:6px">🔁 Boucle Générateur / Critique</div>
+            <div style="font-size:0.82rem;color:var(--muted)">Un agent génère, un autre critique. Le cycle se répète jusqu'à validation. Qualité élevée, coût élevé.</div>
+          </div>
+          <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
+            <div style="font-weight:700;margin-bottom:6px">🌐 Graphe d'État (DAG)</div>
+            <div style="font-size:0.82rem;color:var(--muted)">Agents sous forme de graphe avec transitions conditionnelles. Modèle de LangGraph — le plus utilisé en production.</div>
+          </div>
         </div>
       </div>
     </div>
-    <div class="tab-panel" id="tab-reflection">
-      <div class="pattern-display">
-        <div class="pattern-title">Boucle de Réflexion <span class="pattern-tag">Qualité</span></div>
-        <p class="pattern-desc">Un agent générateur produit un résultat, un agent critique l'évalue. Ce cycle se répète jusqu'à satisfaction d'un critère de qualité.</p>
-        <div class="flow-visual">
-          <div class="flow-node">Générateur</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node alt">Critique</div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-node alt2">Évaluation</div>
-          <div class="flow-arrow">↰ si insuffisant</div>
-          <div class="flow-node" style="background:var(--green)">Résultat validé</div>
-        </div>
-        <div class="pros-cons">
-          <div class="pro-item">✓ Qualité de sortie très élevée</div>
-          <div class="pro-item">✓ Auto-correction sans intervention humaine</div>
-          <div class="con-item">✗ Risque de boucle infinie</div>
-          <div class="con-item">✗ Coût computationnel multiplié</div>
+  </div>
+</section>
+
+<!-- ═══════════════════ SWARM ═══════════════════ -->
+<section id="swarm">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Décentralisé — Cas concret</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Robotique en Essaim</h2>
+      <p class="section-desc">La décentralisation appliquée au monde physique — l'essaim, ce n'est pas "plein de robots", c'est faire émerger une coordination collective à partir de règles locales.</p>
+    </div>
+    <div class="swarm-main reveal">
+      <div class="swarm-analogy">
+        <div class="swarm-analogy-icon">🐜</div>
+        <div>
+          <h3>L'analogie des fire ants</h3>
+          <p>Les fourmis de feu n'ont pas de chef. Pourtant, elles forment des structures collectives cohérentes parce que chacune suit des interactions locales. En robotique : avec des règles simples comme <em>"je garde ma distance"</em>, <em>"j'évite"</em>, <em>"je suis un signal"</em>, <em>"je me recale sur mes voisins"</em> — on obtient des comportements utiles : couvrir une zone, avancer en formation, suivre une cible.</p>
         </div>
       </div>
-    </div>
-    <div class="tab-panel" id="tab-graph">
-      <div class="pattern-display">
-        <div class="pattern-title">Graphe Orienté Acyclique <span class="pattern-tag">Flexible</span></div>
-        <p class="pattern-desc">Architecture la plus flexible. Les agents forment un graphe avec des transitions conditionnelles. C'est le modèle de LangGraph — le plus adopté en production.</p>
-        <div class="flow-visual" style="flex-direction:column;gap:10px">
-          <div class="flow-node">Nœud START</div>
-          <div style="display:flex;gap:24px">
-            <div class="flow-arrow" style="transform:rotate(20deg)">↓</div>
-            <div class="flow-arrow" style="transform:rotate(-20deg)">↓</div>
+      <div class="swarm-cases reveal">
+        <div class="swarm-case-card">
+          <div class="swarm-case-header">
+            <div class="swarm-case-icon">🛸</div>
+            <div>
+              <div class="swarm-case-name">Palladyne AI — Palladyne Pilot</div>
+              <div class="swarm-case-type">Drones autonomes en essaim</div>
+            </div>
           </div>
-          <div style="display:flex;gap:16px">
-            <div class="flow-node alt">Agent Routeur</div>
-            <div class="flow-node alt">Condition</div>
+          <p>Logiciel de coordination multi-drones en <strong>boucle fermée</strong> : détecter → suivre → agir. Échanges d'informations adaptés quand la bande passante est limitée. Plusieurs drones et capteurs travaillent ensemble avec autonomie complète.</p>
+        </div>
+        <div class="swarm-case-card">
+          <div class="swarm-case-header">
+            <div class="swarm-case-icon">🤖</div>
+            <div>
+              <div class="swarm-case-name">Swarmbotics AI — Fire Ant</div>
+              <div class="swarm-case-type">Robots terrestres autonomes</div>
+            </div>
           </div>
-          <div style="display:flex;gap:8px">
-            <div class="flow-node alt2" style="font-size:0.75rem">Branche A</div>
-            <div class="flow-node alt2" style="font-size:0.75rem">Branche B</div>
-            <div class="flow-node alt2" style="font-size:0.75rem">Branche C</div>
-          </div>
-          <div class="flow-node" style="background:var(--green)">Nœud END</div>
-        </div>
-        <div class="pros-cons">
-          <div class="pro-item">✓ Logique conditionnelle et boucles contrôlées</div>
-          <div class="pro-item">✓ Idéal pour workflows métier complexes</div>
-          <div class="con-item">✗ Complexité de modélisation plus élevée</div>
-          <div class="con-item">✗ Débogage difficile sur grands graphes</div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-panel" id="tab-swarm">
-      <div class="pattern-display">
-        <div class="pattern-title">Architecture en Essaim <span class="pattern-tag">Décentralisé</span></div>
-        <p class="pattern-desc">Pas de chef unique. Chaque agent agit selon des règles locales et des échanges directs entre pairs. La coordination émerge des interactions — comme les fourmis de feu (<em>fire ants</em>) qui forment des structures collectives sans cerveau central.</p>
-        <div class="flow-visual" style="flex-wrap:wrap;gap:10px;justify-content:center">
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-          <div class="flow-node alt" style="font-size:0.8rem">Agent 🐜</div>
-        </div>
-        <div class="pros-cons">
-          <div class="pro-item">✓ Très robuste — si un agent tombe, le reste continue</div>
-          <div class="pro-item">✓ Scalable sans goulot central</div>
-          <div class="pro-item">✓ Décisions locales = réactivité maximale</div>
-          <div class="con-item">✗ Risque de doublons, contradictions, oscillations</div>
-          <div class="con-item">✗ Très difficile à diagnostiquer en cas d'échec</div>
-        </div>
-        <div class="swarm-examples">
-          <div class="sw-ex"><strong>🛸 Palladyne AI (Palladyne Pilot)</strong> — coordination multi-drones en boucle fermée (détecter → suivre → agir) avec bande passante limitée.</div>
-          <div class="sw-ex"><strong>🤖 Swarmbotics AI (robots Fire Ant)</strong> — stack ANTS/Antsnet : robots terrestres qui se coordonnent et se répartissent les actions en temps réel, supervisés via interface opérateur.</div>
+          <p>Robots terrestres avec stack <strong>ANTS/Antsnet</strong>. Promesse : l'"autonomie d'essaim" — les robots se coordonnent et se répartissent les actions en temps réel, pendant que l'opérateur garde une vue d'ensemble via l'interface.</p>
         </div>
       </div>
     </div>
@@ -976,10 +1012,10 @@ footer p strong{color:var(--text)}
 <section id="frameworks">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Écosystème</div>
+      <div class="section-eyebrow">Outils & Frameworks LLM</div>
       <div class="glow-line"></div>
-      <h2 class="section-title">Les Frameworks Majeurs</h2>
-      <p class="section-desc">Panorama des outils qui structurent l'orchestration des agents IA en 2025.</p>
+      <h2 class="section-title">Outils d'Orchestration</h2>
+      <p class="section-desc">Ces frameworks implémentent les 3 paradigmes pour les agents basés sur des modèles de langage (LLM).</p>
     </div>
     <div class="fw-grid">
       <div class="fw-card reveal delay-1" style="--fw-color:#16a34a">
@@ -1105,55 +1141,47 @@ footer p strong{color:var(--text)}
   </div>
 </section>
 
-<!-- ═══════════════════ DÉFIS ═══════════════════ -->
+<!-- ═══════════════════ LIMITES & PERSPECTIVES ═══════════════════ -->
 <section id="defis">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Enjeux</div>
+      <div class="section-eyebrow">Limites & Perspectives</div>
       <div class="glow-line"></div>
-      <h2 class="section-title">Défis & Solutions</h2>
-      <p class="section-desc">Les limites actuelles et les pistes de réponse de l'industrie.</p>
+      <h2 class="section-title">Défis des systèmes multi-agents</h2>
+      <p class="section-desc">Pour les agents autonomes — LLM ou robotiques — trois limites reviennent systématiquement, avec des pistes de réponse émergentes.</p>
     </div>
     <div class="challenges-grid">
       <div class="challenge problem reveal delay-1">
-        <div class="ch-header"><span class="ch-badge">Problème</span><h3>Hallucinations en chaîne</h3></div>
-        <p>Une erreur d'un agent se propage et s'amplifie dans les agents suivants. La validation intermédiaire est critique mais complexe à implémenter.</p>
+        <div class="ch-header"><span class="ch-badge">Limite</span><h3>Fiabilité</h3></div>
+        <p>Le modèle peut produire quelque chose de plausible mais faux. Dans un système agentique, l'erreur ne reste pas dans la sortie — elle <strong>se transforme en action</strong> et se propage aux agents suivants.</p>
       </div>
       <div class="challenge solution reveal delay-2">
-        <div class="ch-header"><span class="ch-badge">Solution</span><h3>Agents vérificateurs (Guardrails)</h3></div>
-        <p>Insérer des agents critiques à des étapes clés pour valider les outputs avant transmission. Pattern "generator + critic" inspiré de la boucle de réflexion.</p>
+        <div class="ch-header"><span class="ch-badge">Réponse</span><h3>Agents vérificateurs & Guardrails</h3></div>
+        <p>Insérer des agents critiques à des étapes clés pour valider les outputs avant transmission. Pattern "generator + critic". Le prompt caching réduit aussi le coût de ces boucles de vérification.</p>
       </div>
       <div class="challenge problem reveal delay-1">
-        <div class="ch-header"><span class="ch-badge">Problème</span><h3>Coût computationnel élevé</h3></div>
-        <p>Multiplier les appels LLM multiplie les coûts. Un workflow complexe peut générer des centaines d'appels API, rendant certaines apps économiquement non viables.</p>
+        <div class="ch-header"><span class="ch-badge">Limite</span><h3>Sécurité</h3></div>
+        <p>Dès qu'un agent lit du contenu externe (pages web, documents, API), il peut être <strong>manipulé par des instructions cachées</strong>. Plus il a accès à des outils, plus le risque est important.</p>
       </div>
       <div class="challenge solution reveal delay-2">
-        <div class="ch-header"><span class="ch-badge">Solution</span><h3>Prompt Caching & Architectures hybrides</h3></div>
-        <p>Le prompt caching (Anthropic, OpenAI) réduit les coûts jusqu'à 90 %. Les architectures hybrides (LLM + règles simples) réduisent la dépendance aux modèles coûteux.</p>
+        <div class="ch-header"><span class="ch-badge">Réponse</span><h3>Sandboxing & Least Privilege</h3></div>
+        <p>Isoler les agents dans des environnements restreints avec des permissions minimales. Le principe du "least privilege" appliqué aux agents réduit drastiquement la surface d'attaque.</p>
       </div>
       <div class="challenge problem reveal delay-3">
-        <div class="ch-header"><span class="ch-badge">Problème</span><h3>Observabilité & débogage</h3></div>
-        <p>Comprendre pourquoi un système multi-agents a échoué est extrêmement difficile. Les traces d'exécution s'imbriquent et sont illisibles sans outillage dédié.</p>
+        <div class="ch-header"><span class="ch-badge">Limite</span><h3>Contrôle & Audit</h3></div>
+        <p>Avec plusieurs agents, surtout en distribué, il devient difficile de reconstruire <strong>"qui a fait quoi"</strong> et de garantir un comportement reproductible. Les traces s'imbriquent et sont illisibles sans outillage dédié.</p>
       </div>
       <div class="challenge solution reveal delay-4">
-        <div class="ch-header"><span class="ch-badge">Solution</span><h3>LangSmith, Langfuse, Arize Phoenix</h3></div>
-        <p>Plateformes de traçabilité qui visualisent les traces d'exécution, les appels LLM, et permettent de rejouer des scénarios de débogage complets.</p>
+        <div class="ch-header"><span class="ch-badge">Réponse</span><h3>LangSmith, Langfuse, Arize Phoenix</h3></div>
+        <p>Plateformes de traçabilité qui visualisent les traces d'exécution inter-agents, les appels LLM, et permettent de rejouer des scénarios de débogage complets.</p>
       </div>
       <div class="challenge problem reveal delay-3">
-        <div class="ch-header"><span class="ch-badge">Problème</span><h3>Prompt Injection & Sécurité</h3></div>
-        <p>Un agent peut être manipulé par des données malveillantes injectées dans son contexte via des sources externes (pages web, documents, API).</p>
+        <div class="ch-header"><span class="ch-badge">Limite</span><h3>Interopérabilité entre agents</h3></div>
+        <p>Chaque framework définit ses propres conventions. La délégation et la coordination entre agents hétérogènes restent "bricolées" — il n'existe pas de langage commun.</p>
       </div>
       <div class="challenge solution reveal delay-4">
-        <div class="ch-header"><span class="ch-badge">Solution</span><h3>Sandboxing & Least Privilege</h3></div>
-        <p>Isoler les agents dans des environnements restreints avec des permissions minimales. Le principe du "least privilege" appliqué aux agents réduit la surface d'attaque.</p>
-      </div>
-      <div class="challenge problem reveal delay-1">
-        <div class="ch-header"><span class="ch-badge">Problème</span><h3>Coordination inter-agents non standardisée</h3></div>
-        <p>Chaque framework définit ses propres conventions pour la délégation, les messages et les artefacts entre agents. L'interopérabilité est quasiment impossible entre systèmes hétérogènes.</p>
-      </div>
-      <div class="challenge solution reveal delay-2">
-        <div class="ch-header"><span class="ch-badge">Solution</span><h3>Protocole A2A (Agent-to-Agent)</h3></div>
-        <p>Proposé par Google en 2025, A2A standardise la collaboration inter-agents : un agent annonce ses capacités via une <strong>Agent Card</strong>, reçoit une tâche structurée, échange des messages et des artefacts, avec support du streaming pour suivre l'exécution en temps réel.</p>
+        <div class="ch-header"><span class="ch-badge">Perspective</span><h3>Protocole A2A (Agent-to-Agent)</h3></div>
+        <p>Google, 2025 — standardise la collaboration inter-agents : un agent annonce ses capacités via une <strong>Agent Card</strong>, reçoit une tâche structurée, échange des messages et artefacts avec support du streaming. Vise à rendre la délégation plus propre et moins bricolée.</p>
       </div>
     </div>
   </div>
