@@ -190,10 +190,42 @@ body{
   display:block;
 }
 .stat-label{font-size:0.78rem;color:var(--muted);font-weight:500;margin-top:4px}
+.hero-usecases{
+  display:flex;flex-wrap:wrap;align-items:center;gap:12px;
+  justify-content:center;
+  margin-bottom:20px;
+  animation:fadeUp 0.7s 0.35s ease both;
+}
+.hero-uc-label{
+  font-size:0.78rem;font-weight:700;color:var(--muted);
+  text-transform:uppercase;letter-spacing:1px;
+}
+.hero-uc-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.hero-uc-chip{
+  background:rgba(124,58,237,0.1);
+  border:1px solid rgba(124,58,237,0.2);
+  color:var(--accent2);
+  border-radius:20px;padding:3px 12px;
+  font-size:0.78rem;font-weight:500;
+}
+.hero-quote{
+  max-width:640px;margin:0 auto 32px;
+  font-size:0.95rem;color:var(--muted);
+  font-style:italic;line-height:1.7;
+  padding:14px 20px;
+  border-left:3px solid var(--accent);
+  background:rgba(124,58,237,0.05);
+  border-radius:0 8px 8px 0;
+  animation:fadeUp 0.7s 0.38s ease both;
+  text-align:left;
+}
 .hero-cta{
   display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
   animation:fadeUp 0.7s 0.4s ease both;
 }
+
+/* 3-card grid */
+.def-grid-3{grid-template-columns:repeat(3,1fr)}
 .btn{
   display:inline-flex;align-items:center;gap:8px;
   padding:12px 24px;border-radius:10px;
@@ -727,7 +759,7 @@ footer p strong{color:var(--text)}
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media(max-width:768px){
-  .definition-grid,.method-grid,.challenges-grid,.pros-cons{grid-template-columns:1fr}
+  .definition-grid,.def-grid-3,.method-grid,.challenges-grid,.pros-cons{grid-template-columns:1fr}
   .nav-links{display:none}
   .hero h1{font-size:2rem}
   .hero-stats{gap:10px}
@@ -776,6 +808,19 @@ footer p strong{color:var(--text)}
       <div class="stat-card"><span class="stat-number" data-target="47">0</span><span class="stat-label">Md$ marché agentic IA 2030</span></div>
       <div class="stat-card"><span class="stat-number" data-target="2025">0</span><span class="stat-label">Année de maturité industrielle</span></div>
     </div>
+    <div class="hero-usecases">
+      <div class="hero-uc-label">Derrière ces usages, des agents :</div>
+      <div class="hero-uc-chips">
+        <span class="hero-uc-chip">🔍 DeepSearch</span>
+        <span class="hero-uc-chip">🖼️ ChatGPT image</span>
+        <span class="hero-uc-chip">💬 Chatbots e-commerce</span>
+        <span class="hero-uc-chip">⚙️ Automation mails</span>
+        <span class="hero-uc-chip">🤖 Copilot / Cursor</span>
+      </div>
+    </div>
+    <div class="hero-quote">
+      "On passe d'une <strong>IA qui répond</strong> à une <strong>IA qui exécute</strong> — la vraie question : comment orchestrer ?"
+    </div>
     <div class="hero-cta">
       <a href="#intro" class="btn btn-primary">🚀 Explorer la veille</a>
       <a href="#methodologie" class="btn btn-outline">📋 Voir la méthodologie</a>
@@ -794,43 +839,22 @@ footer p strong{color:var(--text)}
       <p class="section-desc">Derrière DeepSearch, les chatbots e-commerce, l'automatisation des mails — on trouve de plus en plus des agents. La vraie question : comment les orchestrer.</p>
     </div>
 
-    <div class="definition-grid">
+    <div class="definition-grid def-grid-3">
       <div class="def-card reveal delay-1">
         <div class="def-icon">🤖</div>
         <h3>L'Agent Logiciel</h3>
-        <p>Composant <strong>autonome</strong> qui perçoit un état (capteurs, logs, messages, données), prend une décision selon des règles, puis agit via des interfaces : <strong>API, base de données, système de fichiers, réseau</strong>.</p>
+        <p>Composant <strong>autonome</strong> qui perçoit un état (capteurs, logs, messages, données), prend une décision selon des règles, puis agit via des interfaces : <strong>API, base de données, système de fichiers, réseau, exécution de tâches</strong>.</p>
       </div>
       <div class="def-card reveal delay-2">
         <div class="def-icon">🔗</div>
         <h3>Système Multi-Agents</h3>
-        <p>Quand on a plusieurs agents, chacun peut être <strong>spécialisé</strong>. Mais ils doivent éviter les doublons et les contradictions. C'est là qu'intervient l'orchestration.</p>
+        <p>Plusieurs agents, chacun <strong>spécialisé</strong> dans un domaine. Ils doivent coordonner leurs actions pour éviter les doublons, les contradictions et les conflits de ressources.</p>
       </div>
       <div class="def-card reveal delay-3">
         <div class="def-icon">🎯</div>
         <h3>L'Orchestration</h3>
-        <p>Ce qui organise la collaboration entre agents — <strong>qui fait quoi, quand, avec quelles infos</strong> — et comment on évite les erreurs, gère les priorités, les validations, les conflits.</p>
+        <p>Ce qui organise la collaboration entre agents — <strong>qui fait quoi, quand, avec quelles infos</strong> — et comment on évite les erreurs, gère les priorités, les validations et les conflits.</p>
       </div>
-      <div class="def-card reveal delay-4">
-        <div class="def-icon">🔌</div>
-        <h3>Protocoles MCP & A2A</h3>
-        <p><strong>MCP</strong> (Anthropic, 2024) uniformise la connexion agents ↔ outils. <strong>A2A</strong> (Google, 2025) standardise la collaboration inter-agents : Agent Cards, délégation structurée, streaming.</p>
-      </div>
-    </div>
-
-    <div class="use-cases-strip reveal">
-      <div class="uc-label">Usages concrets aujourd'hui :</div>
-      <div class="uc-chips">
-        <span class="uc-chip">🔍 DeepSearch (résumé de docs)</span>
-        <span class="uc-chip">🖼️ Screening d'images ChatGPT</span>
-        <span class="uc-chip">💬 Chatbots e-commerce</span>
-        <span class="uc-chip">⚙️ Automation mails & reporting</span>
-        <span class="uc-chip">🤖 Agents codeurs (Copilot, Cursor)</span>
-      </div>
-    </div>
-
-    <div class="quote-block reveal">
-      <p>On est en train de passer d'une <strong>IA qui répond</strong> à une <strong>IA qui exécute</strong> : au lieu d'un simple chatbot, on a des systèmes capables de planifier des étapes et de déclencher des actions dans des outils métier. La question n'est plus "est-ce que ça marche", mais <strong>comment on le rend fiable</strong> — et quel paradigme d'orchestration choisir selon le contexte.</p>
-      <div class="quote-source">INTRO.txt — Veille MOS 4.4, École Centrale de Lyon, 2025–2026</div>
     </div>
   </div>
 </section>
