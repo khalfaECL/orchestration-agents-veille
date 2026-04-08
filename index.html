@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Orchestration des Agents IA — Veille Technologique</title>
+<title>Orchestration des Agents — Veille Technologique</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet"/>
 <style>
@@ -33,14 +33,14 @@
   --radius-sm: 8px;
 }
 [data-theme="light"] {
-  --bg: #f0f0f8;
-  --bg2: #e8e8f5;
+  --bg: #fafafa;
+  --bg2: #f0f0f8;
   --bg3: #ffffff;
-  --surface: #ffffff;
+  --surface: rgba(255,255,255,0.9);
   --surface2: #f5f5fc;
-  --border: rgba(0,0,0,0.08);
-  --text: #1a1a2e;
-  --muted: #6060a0;
+  --border: rgba(100,60,200,0.1);
+  --text: #0f0f1e;
+  --muted: #5a5a8a;
   --glow: rgba(124,58,237,0.15);
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -153,9 +153,21 @@ border-color:var(--accent2);
   font-size:0.78rem;font-weight:600;
   letter-spacing:1.5px;text-transform:uppercase;
   padding:6px 16px;border-radius:100px;
-  margin-bottom:28px;
+  margin-bottom:12px;
   animation:fadeDown 0.6s ease both;
 }
+.hero-authors{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:24px;
+  animation:fadeDown 0.6s 0.08s ease both;
+}
+.hero-author-item{
+  font-size:0.82rem;font-weight:600;letter-spacing:0.5px;
+  color:var(--muted);
+  text-transform:uppercase;
+}
+.hero-author-sep{color:var(--border);font-size:0.9rem;}
+.hero-author-tutor{font-weight:400;text-transform:none;letter-spacing:0;color:var(--muted);opacity:0.7;}
 .hero-badge .dot{
   width:7px;height:7px;border-radius:50%;
   background:var(--green);
@@ -389,6 +401,58 @@ section{padding:96px 0;position:relative;z-index:1}
   line-height:1.6;
 }
 
+.swarm-full{
+
+position:relative;
+width:100%;
+height:70vh;
+margin-bottom:40px;
+border-radius:14px;
+overflow:hidden;
+border:1px solid var(--border);
+
+}
+
+.swarm-full img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+.swarm-overlay{
+
+position:absolute;
+bottom:0;
+left:0;
+right:0;
+
+padding:28px;
+
+background:linear-gradient(
+transparent,
+rgba(0,0,0,0.85)
+);
+
+color:white;
+
+}
+
+.swarm-overlay h3{
+
+font-size:1.2rem;
+margin-bottom:8px;
+
+}
+
+.swarm-overlay p{
+
+font-size:0.9rem;
+color:#ddd;
+line-height:1.6;
+
+}
 /* ═══════════════════════════════════════
    PATTERNS / ARCHITECTURES
 ═══════════════════════════════════════ */
@@ -454,6 +518,35 @@ section{padding:96px 0;position:relative;z-index:1}
 .flow-branch{
   display:flex;flex-direction:column;gap:8px;align-items:center;
 }
+
+/* ── Tableau comparaison ── */
+.cmp-table-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+.cmp-table{width:100%;border-collapse:collapse;font-size:0.88rem}
+.cmp-table thead tr{background:var(--surface2)}
+.cmp-table th,.cmp-table td{
+  padding:14px 18px;text-align:left;
+  border-bottom:1px solid var(--border);vertical-align:middle;
+}
+.cmp-table tbody tr:last-child td{border-bottom:none}
+.cmp-table tbody tr:hover{background:var(--surface2)}
+.cmp-criterion{
+  font-weight:700;font-size:0.82rem;color:var(--muted);
+  white-space:nowrap;background:var(--surface);
+  border-right:1px solid var(--border);
+}
+.cmp-table thead .cmp-criterion{color:var(--text);font-size:0.85rem}
+.cmp-col{font-weight:700;font-size:0.9rem;color:var(--text)}
+.cmp-arch-dot{
+  display:inline-block;width:9px;height:9px;border-radius:50%;
+  margin-right:7px;vertical-align:middle;
+}
+.cmp-central{border-top:3px solid #7c3aed}
+.cmp-hier{border-top:3px solid #0ea5e9}
+.cmp-decentral{border-top:3px solid #10b981}
+.cmp-good{color:var(--green);font-weight:700;margin-right:4px;letter-spacing:-1px}
+.cmp-med{color:var(--orange);font-weight:700;margin-right:4px;letter-spacing:-1px}
+.cmp-bad{color:var(--red);font-weight:700;margin-right:4px;letter-spacing:-1px}
+
 .pros-cons{
   display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px;
 }
@@ -463,6 +556,47 @@ section{padding:96px 0;position:relative;z-index:1}
 }
 .pro-item{background:rgba(16,185,129,0.08);color:var(--green);border:1px solid rgba(16,185,129,0.15)}
 .con-item{background:rgba(239,68,68,0.08);color:var(--red);border:1px solid rgba(239,68,68,0.15)}
+
+/*architecture v2*/
+.arch-layout{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+align-items:center;
+margin-top:20px;
+}
+
+.arch-text{
+font-size:0.9rem;
+line-height:1.8;
+color:var(--muted);
+}
+
+.arch-text strong{
+color:var(--text);
+}
+
+.arch-image{
+display:flex;
+justify-content:center;
+}
+
+.arch-image img{
+max-width:100%;
+border-radius:10px;
+border:1px solid var(--border);
+box-shadow:0 12px 40px rgba(0,0,0,0.25);
+}
+
+@media(max-width:768px){
+.arch-layout{
+grid-template-columns:1fr;
+}
+}
+
+
+
+
 
 /* ARCH CONCLUSION / VERDICT */
 .arch-conclusion{
@@ -620,7 +754,7 @@ section{padding:96px 0;position:relative;z-index:1}
 ═══════════════════════════════════════ */
 .method-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:24px;
-  margin-bottom:32px;
+  margin-bottom:32px;align-items:stretch;
 }
 .method-card{
   background:var(--surface);
@@ -628,7 +762,7 @@ section{padding:96px 0;position:relative;z-index:1}
   border-radius:var(--radius);
   padding:28px;
   display:flex;gap:20px;align-items:flex-start;
-  transition:all 0.3s;
+  transition:all 0.3s;height:100%;
 }
 .method-card:hover{border-color:rgba(124,58,237,0.3);transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.2)}
 .method-num{
@@ -659,6 +793,432 @@ section{padding:96px 0;position:relative;z-index:1}
   border-color:var(--accent);color:var(--accent2);
   background:rgba(124,58,237,0.08);
   transform:translateY(-2px);
+}
+
+/* ═══════════════════════════════════════
+   TOOLS LOGOS (Méthodologie)
+═══════════════════════════════════════ */
+.tools-used-card{
+  grid-column:1 / -1;
+  flex-direction:column;
+  gap:28px;
+  border-top:2px solid transparent;
+  background:linear-gradient(var(--surface2),var(--surface2)) padding-box,
+             linear-gradient(135deg,var(--cyan),var(--green)) border-box;
+}
+.tools-logo-grid{
+  display:flex;flex-direction:column;gap:20px;align-items:center;width:100%;
+}
+.tl-row{
+  display:flex;justify-content:center;align-items:flex-end;gap:20px 32px;flex-wrap:wrap;
+}
+.tool-logo-item{
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+  text-align:center;cursor:default;
+  transition:transform 0.38s cubic-bezier(0.34,1.56,0.64,1);
+}
+.tool-logo-item:hover{transform:translateY(-14px)}
+.tool-logo-icon{
+  border-radius:20px;border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+  transition:box-shadow 0.35s ease, transform 0.35s ease;
+}
+.tool-logo-item:hover .tool-logo-icon{
+  box-shadow:0 18px 50px var(--tool-glow,rgba(124,58,237,0.35));
+  transform:scale(1.08);
+}
+.tool-logo-icon img{
+  display:block;object-fit:contain;
+  transition:filter 0.3s;
+}
+.tool-logo-item:hover .tool-logo-icon img{filter:brightness(1.12) saturate(1.2)}
+/* sizes */
+.tl-lg .tool-logo-icon{width:84px;height:84px}
+.tl-lg .tool-logo-icon img{width:50px;height:50px}
+.tl-lg .tool-logo-name{font-size:0.9rem}
+.tl-md .tool-logo-icon{width:66px;height:66px}
+.tl-md .tool-logo-icon img{width:38px;height:38px}
+.tl-md .tool-logo-name{font-size:0.82rem}
+.tl-sm .tool-logo-icon{width:52px;height:52px}
+.tl-sm .tool-logo-icon img{width:28px;height:28px}
+.tl-sm .tool-logo-name{font-size:0.75rem}
+.tool-logo-name{font-weight:700;color:var(--text);transition:color 0.2s}
+.tool-logo-item:hover .tool-logo-name{color:var(--accent2)}
+.tool-logo-role{font-size:0.7rem;color:var(--muted);line-height:1.35}
+img.github-adaptive,img.x-adaptive{filter:none}
+[data-theme="dark"] img.github-adaptive,[data-theme="dark"] img.x-adaptive{filter:invert(1)}
+
+/* ── Méthodo — Flux RSS & Requêtes ── */
+.method-sub{margin-top:14px}
+.axis-list{display:flex;flex-direction:column;gap:7px}
+.axis-item{
+  display:flex;align-items:center;gap:10px;
+  padding:8px 12px;border-radius:var(--radius-sm);
+  border:1px solid var(--border);background:var(--surface2);
+  font-size:0.8rem;
+}
+.axis-dot{width:9px;height:9px;border-radius:50%;flex-shrink:0}
+.axis-item strong{font-weight:700;color:var(--text);margin-right:4px}
+.axis-item span{color:var(--muted)}
+.src-type-rows{display:flex;flex-direction:column;gap:6px}
+.src-type-row{display:flex;align-items:flex-start;gap:8px;font-size:0.78rem}
+.src-type-label{
+  font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;
+  padding:2px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0;margin-top:1px;
+}
+.stl-academic{background:rgba(124,58,237,0.12);color:var(--accent2)}
+.stl-industry{background:rgba(6,182,212,0.12);color:var(--cyan)}
+.stl-community{background:rgba(16,185,129,0.12);color:var(--green)}
+.src-type-row .rss-list{gap:4px;margin:0}
+.src-type-row .rss-tag{font-size:0.72rem;padding:2px 8px}
+.method-sub-label{
+  font-size:0.7rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:8px;display:flex;align-items:center;gap:6px;
+}
+.method-sub-label::after{content:'';flex:1;height:1px;background:var(--border)}
+.rss-list{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:0}
+.rss-tag{
+  font-size:0.75rem;font-weight:600;padding:3px 10px;border-radius:100px;
+  background:var(--surface2);border:1px solid var(--border);color:var(--text);
+}
+.query-block{
+  background:var(--bg2);border:1px solid var(--border);border-left:3px solid var(--accent);
+  border-radius:var(--radius-sm);padding:10px 14px;margin-bottom:8px;
+  font-family:var(--mono);font-size:0.76rem;line-height:1.7;color:var(--text);
+  white-space:pre-wrap;word-break:break-word;
+}
+.query-block:last-child{margin-bottom:0}
+.query-kw{color:var(--accent2)}
+.query-op{color:var(--cyan);font-weight:700}
+.query-range{color:var(--green)}
+
+/* ── Zotero folder tree ── */
+.zotero-tree{
+  background:var(--bg2);border:1px solid var(--border);
+  border-radius:var(--radius-sm);padding:12px 14px;
+  font-family:var(--mono);font-size:0.77rem;line-height:1;
+}
+.zt-root{display:flex;align-items:center;gap:7px;color:var(--text);font-weight:700;margin-bottom:8px;font-size:0.8rem}
+.zt-collection{margin-left:16px;border-left:1px solid var(--border);padding-left:12px}
+.zt-collection-title{
+  display:flex;align-items:center;gap:7px;color:var(--accent2);
+  font-weight:700;margin-bottom:6px;font-size:0.78rem;
+}
+.zt-item{
+  display:flex;align-items:center;gap:8px;
+  padding:4px 6px;border-radius:5px;margin-bottom:3px;
+  transition:background 0.15s;
+}
+.zt-item:hover{background:var(--surface)}
+.zt-name{color:var(--text);font-weight:600}
+.zt-desc{display:none}
+.zt-badge{
+  margin-left:auto;font-size:0.65rem;font-weight:700;padding:1px 6px;
+  border-radius:3px;letter-spacing:0.04em;flex-shrink:0;
+}
+.zt-badge-in{background:rgba(245,158,11,0.15);color:var(--orange)}
+.zt-badge-key{background:rgba(124,58,237,0.15);color:var(--accent2)}
+.zt-badge-read{background:rgba(6,182,212,0.12);color:var(--cyan)}
+
+/* ═══════════════════════════════════════
+   CONCEPT SLIDER
+═══════════════════════════════════════ */
+.cs-section{position:relative;height:100vh;overflow:hidden}
+.cs-slide{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.9s cubic-bezier(0.4,0,0.2,1);
+  pointer-events:none;
+}
+.cs-slide.active{opacity:1;pointer-events:auto}
+.cs-overlay{position:absolute;inset:0}
+.cs-content{
+  position:relative;z-index:1;
+  text-align:center;max-width:780px;padding:0 40px;
+  animation:csFadeUp 0.7s ease both;
+}
+.cs-slide.active .cs-content{animation:csFadeUp 0.7s 0.2s ease both}
+@keyframes csFadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+.cs-counter{
+  font-family:var(--mono);font-size:0.8rem;font-weight:700;
+  color:rgba(255,255,255,0.4);letter-spacing:0.15em;margin-bottom:16px;
+}
+.cs-counter span{color:rgba(255,255,255,0.2)}
+.cs-eyebrow{
+  font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;
+  color:rgba(255,255,255,0.55);margin-bottom:24px;
+}
+.cs-icon-wrap{
+  width:80px;height:80px;border-radius:50%;border:1.5px solid;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 28px;background:rgba(255,255,255,0.05);
+  backdrop-filter:blur(8px);
+  transition:transform 0.3s;
+}
+.cs-slide.active .cs-icon-wrap{animation:csPulse 3s 0.8s ease infinite}
+@keyframes csPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.cs-title{
+  font-size:clamp(2rem,5vw,3.6rem);font-weight:900;color:#fff;
+  line-height:1.1;margin-bottom:24px;
+}
+.cs-desc{
+  font-size:clamp(0.95rem,1.8vw,1.1rem);color:rgba(255,255,255,0.82);
+  line-height:1.85;margin-bottom:32px;max-width:640px;margin-left:auto;margin-right:auto;
+}
+.cs-tags{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.cs-tag{
+  font-size:0.75rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;
+  padding:6px 16px;border-radius:100px;
+  background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);
+  color:rgba(255,255,255,0.85);backdrop-filter:blur(4px);
+  transition:background 0.2s;
+}
+.cs-arrow{
+  position:absolute;top:50%;transform:translateY(-50%);z-index:10;
+  width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.25);
+  background:rgba(255,255,255,0.08);backdrop-filter:blur(12px);
+  color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  transition:all 0.25s;
+}
+.cs-arrow:hover{background:rgba(255,255,255,0.2);border-color:rgba(255,255,255,0.5);transform:translateY(-50%) scale(1.08)}
+.cs-prev{left:32px}
+.cs-next{right:32px}
+.cs-dots{
+  position:absolute;bottom:40px;left:50%;transform:translateX(-50%);
+  display:flex;gap:12px;z-index:10;
+}
+.cs-dot{
+  width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;
+  background:rgba(255,255,255,0.3);transition:all 0.3s;padding:0;
+}
+.cs-dot.active{background:#fff;width:28px;border-radius:4px}
+.cs-progress{
+  position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:rgba(255,255,255,0.1);z-index:10;
+}
+.cs-progress-bar{height:100%;background:rgba(255,255,255,0.6);width:33.33%;transition:width 0.5s ease}
+
+/* ═══════════════════════════════════════
+   PALLADYNE DETAIL
+═══════════════════════════════════════ */
+.swarm-overlay-minimal{
+  background:linear-gradient(to top,rgba(0,0,0,0.7) 0%,transparent 100%);
+  padding:24px 28px;
+}
+.swarm-overlay-badge{
+  font-size:0.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(255,255,255,0.6);margin-bottom:6px;
+}
+.palladyne-detail{
+  margin-top:28px;
+  display:flex;flex-direction:column;gap:24px;
+}
+.palladyne-intro{
+  background:rgba(6,182,212,0.06);
+  border:1px solid rgba(6,182,212,0.18);
+  border-left:3px solid var(--cyan);
+  border-radius:0 var(--radius) var(--radius) 0;
+  padding:20px 24px;
+  font-size:0.95rem;line-height:1.8;color:var(--text);
+  backdrop-filter:blur(8px);
+}
+.palladyne-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:16px;
+}
+.palladyne-card{
+  display:flex;gap:16px;align-items:flex-start;
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius);
+  padding:20px;
+  transition:all 0.3s;
+}
+[data-theme="light"] .palladyne-card{
+  background:rgba(255,255,255,0.8);
+  border:1px solid rgba(0,0,0,0.07);
+  box-shadow:0 2px 16px rgba(0,0,0,0.05);
+}
+.palladyne-card:hover{
+  border-color:rgba(var(--pc-rgb,124,58,237),0.3);
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.25);
+}
+.palladyne-card-icon{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:color-mix(in srgb,var(--pc) 15%,transparent);
+  border:1px solid color-mix(in srgb,var(--pc) 30%,transparent);
+  color:var(--pc);
+}
+.palladyne-card-title{
+  font-size:0.88rem;font-weight:700;margin-bottom:8px;color:var(--text);
+}
+.palladyne-card-body{font-size:0.84rem;color:var(--muted);line-height:1.75;}
+.palladyne-card-body strong{color:var(--text);}
+.palladyne-verdict{
+  display:flex;align-items:flex-start;gap:12px;
+  background:rgba(124,58,237,0.07);
+  border:1px solid rgba(124,58,237,0.2);
+  border-radius:var(--radius);
+  padding:18px 22px;
+  font-size:0.88rem;color:var(--muted);line-height:1.7;
+  backdrop-filter:blur(8px);
+}
+.palladyne-verdict svg{color:var(--accent2);flex-shrink:0;margin-top:2px;}
+.palladyne-verdict strong{color:var(--text);}
+@media(max-width:768px){.palladyne-grid{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════
+   SYSTEM DIAGRAM
+═══════════════════════════════════════ */
+.sys-diagram{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+  max-width:860px;margin:0 auto;
+}
+.sys-layer{
+  width:100%;
+  background:var(--surface);
+  border:1.5px solid var(--layer-color);
+  border-radius:var(--radius);
+  padding:20px 28px;
+  display:flex;flex-direction:column;align-items:center;
+  box-shadow:0 0 24px color-mix(in srgb,var(--layer-color) 12%,transparent);
+  transition:box-shadow 0.3s;
+}
+.sys-layer:hover{box-shadow:0 0 36px color-mix(in srgb,var(--layer-color) 25%,transparent);}
+.sys-layer-main{padding:24px 28px;}
+.sys-layer-label{
+  font-size:0.7rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;
+  color:var(--layer-color);margin-bottom:14px;
+  text-align:center;
+}
+.sys-layer-nodes{
+  display:flex;flex-wrap:wrap;gap:10px;
+  align-items:stretch;justify-content:center;
+}
+.sys-node{
+  display:flex;align-items:center;gap:8px;
+  background:color-mix(in srgb,var(--node-color) 10%,var(--bg));
+  border:1px solid color-mix(in srgb,var(--node-color) 35%,transparent);
+  color:var(--text);
+  font-size:0.8rem;font-weight:600;
+  padding:8px 14px;border-radius:8px;
+  flex-direction:column;align-items:center;gap:6px;
+  min-width:120px;text-align:center;
+  transition:transform 0.2s,box-shadow 0.2s;
+}
+.sys-node:hover{transform:translateY(-2px);box-shadow:0 6px 20px color-mix(in srgb,var(--node-color) 25%,transparent);}
+.sys-node svg{color:var(--node-color);flex-shrink:0;}
+.sys-node-lg{min-width:200px;padding:12px 20px;}
+.sys-node-sub{
+  font-size:0.68rem;font-weight:400;color:var(--muted);
+  display:block;margin-top:2px;
+}
+.sys-connector{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  padding:4px 0;
+}
+.sys-conn-line{
+  width:2px;height:28px;
+  background:linear-gradient(to bottom,var(--border),var(--border));
+  position:relative;
+}
+.sys-conn-line::after{
+  content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);
+  border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid var(--muted);
+}
+.sys-conn-label{
+  font-size:0.65rem;color:var(--muted);letter-spacing:0.8px;text-transform:uppercase;
+  margin-top:8px;
+}
+.sys-legend{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:20px;
+  margin-top:28px;padding-top:20px;
+  border-top:1px solid var(--border);
+  width:100%;max-width:860px;
+}
+.sys-legend-item{display:flex;align-items:center;gap:8px;font-size:0.78rem;color:var(--muted);}
+.sys-legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+
+/* ═══════════════════════════════════════
+   MARKET HERO
+═══════════════════════════════════════ */
+.market-hero{
+  position:relative;min-height:100vh;
+  display:flex;align-items:center;
+  overflow:hidden;padding:100px 0 80px;
+}
+.market-bg{
+  position:absolute;inset:0;
+  background-size:cover;background-position:center;
+  transform:scale(1.04);
+  filter:brightness(0.35) saturate(0.7);
+}
+.market-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(10,10,15,0.6) 0%,rgba(15,10,30,0.3) 100%);
+}
+.market-layout{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:64px;align-items:center;
+}
+.market-title{
+  font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:900;
+  line-height:1.15;color:#fff;margin:12px 0 24px;
+}
+.market-accent{
+  background:linear-gradient(90deg,var(--accent2),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.market-lead{
+  font-size:1rem;color:rgba(255,255,255,0.9);line-height:1.75;
+  margin-bottom:16px;font-weight:400;
+}
+.market-body{
+  font-size:0.9rem;color:rgba(255,255,255,0.7);line-height:1.8;margin-bottom:16px;
+}
+.market-stats{
+  display:flex;align-items:center;gap:0;
+  margin-top:36px;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.12);
+  border-radius:var(--radius);padding:20px 28px;
+  backdrop-filter:blur(12px);
+}
+.mkt-stat{display:flex;flex-direction:column;gap:4px;flex:1;text-align:center}
+.mkt-num{
+  font-size:1.5rem;font-weight:900;
+  background:linear-gradient(90deg,var(--accent2),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.mkt-lbl{font-size:0.72rem;color:rgba(255,255,255,0.55);line-height:1.4}
+.mkt-divider{width:1px;background:rgba(255,255,255,0.12);align-self:stretch;margin:0 8px}
+.market-chart{
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.14);
+  border-radius:var(--radius);padding:24px;
+  backdrop-filter:blur(16px);
+}
+.market-chart-label{
+  font-size:0.78rem;font-weight:700;color:rgba(255,255,255,0.7);
+  margin-bottom:16px;text-align:center;line-height:1.4;
+}
+.market-chart-img{
+  width:100%;height:auto;display:block;
+  border-radius:var(--radius-sm);
+}
+.market-chart-source{
+  font-size:0.68rem;color:rgba(255,255,255,0.35);
+  text-align:right;margin-top:10px;
+}
+@media(max-width:900px){
+  .market-layout{grid-template-columns:1fr}
+  .market-hero{min-height:auto}
 }
 
 /* ═══════════════════════════════════════
@@ -724,10 +1284,12 @@ section{padding:96px 0;position:relative;z-index:1}
 }
 .src-arxiv{background:rgba(239,68,68,0.12);color:var(--red)}
 .src-blog{background:rgba(6,182,212,0.12);color:var(--cyan)}
-.src-github{background:rgba(16,185,129,0.12);color:var(--green)}
+.src-journal{background:rgba(16,185,129,0.12);color:var(--green)}
 .src-doc{background:rgba(168,85,247,0.12);color:var(--accent2)}
-.src-video{background:rgba(245,158,11,0.12);color:var(--orange)}
+.src-report{background:rgba(245,158,11,0.12);color:var(--orange)}
 .source-card h4{font-size:0.9rem;font-weight:700;margin-bottom:6px}
+.source-card h4 a{color:inherit;text-decoration:none;transition:color 0.2s}
+.source-card h4 a:hover{color:var(--accent2)}
 .source-card p{font-size:0.82rem;color:var(--muted);line-height:1.6}
 
 /* ═══════════════════════════════════════
@@ -778,6 +1340,329 @@ footer p strong{color:var(--text)}
 @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ═══════════════════════════════════════
+   VISUAL OVERHAUL — BACKGROUNDS & AURORA
+═══════════════════════════════════════ */
+
+/* ── Aurora hero background ── */
+@keyframes aurora1{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(60px,-40px) scale(1.15)}66%{transform:translate(-40px,30px) scale(0.95)}}
+@keyframes aurora2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-80px,50px) scale(1.2)}66%{transform:translate(60px,-30px) scale(0.9)}}
+@keyframes aurora3{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(40px,60px) scale(1.1)}}
+@keyframes floatOrb{0%,100%{transform:translateY(0px)}50%{transform:translateY(-20px)}}
+@keyframes rotateSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes borderGlow{0%,100%{opacity:0.5}50%{opacity:1}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+
+/* ── Body background ── */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-2;
+  background:var(--bg);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    radial-gradient(ellipse 80vw 60vh at 20% 10%,rgba(124,58,237,0.07) 0%,transparent 70%),
+    radial-gradient(ellipse 60vw 50vh at 80% 80%,rgba(6,182,212,0.05) 0%,transparent 70%),
+    radial-gradient(ellipse 50vw 40vh at 50% 50%,rgba(236,72,153,0.04) 0%,transparent 70%);
+}
+[data-theme="light"] body::after{
+  background-image:
+    radial-gradient(ellipse 80vw 60vh at 20% 10%,rgba(124,58,237,0.06) 0%,transparent 70%),
+    radial-gradient(ellipse 60vw 50vh at 80% 80%,rgba(6,182,212,0.04) 0%,transparent 70%),
+    radial-gradient(ellipse 50vw 40vh at 50% 50%,rgba(236,72,153,0.03) 0%,transparent 70%);
+}
+
+/* ── Hero: aurora orbs ── */
+.hero{position:relative;overflow:hidden}
+.hero-aurora{
+  position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden;
+}
+.hero-orb{
+  position:absolute;border-radius:50%;filter:blur(80px);
+}
+.hero-orb-1{
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(124,58,237,0.35) 0%,transparent 70%);
+  top:-150px;left:-100px;
+  animation:aurora1 12s ease-in-out infinite;
+}
+.hero-orb-2{
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(236,72,153,0.25) 0%,transparent 70%);
+  top:0;right:-100px;
+  animation:aurora2 15s ease-in-out infinite;
+}
+.hero-orb-3{
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(6,182,212,0.2) 0%,transparent 70%);
+  bottom:-100px;left:50%;
+  animation:aurora3 18s ease-in-out infinite;
+}
+.hero-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(124,58,237,0.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(124,58,237,0.04) 1px,transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 50%,black 0%,transparent 100%);
+}
+.hero-inner{position:relative;z-index:2}
+
+/* ── Navbar overhaul ── */
+.navbar{
+  border-bottom:1px solid rgba(124,58,237,0.15);
+}
+[data-theme="light"] .navbar{
+  background:rgba(240,240,248,0.85);
+  border-bottom:1px solid rgba(124,58,237,0.12);
+}
+.nav-logo{
+  font-size:1.05rem;letter-spacing:-0.3px;
+}
+
+/* ── Section backgrounds ── */
+section{
+  position:relative;
+}
+section:not(.cs-section):not(.market-hero-section)::before{
+  content:'';position:absolute;inset:0;z-index:0;pointer-events:none;
+  background-image:
+    radial-gradient(circle at 0% 50%,rgba(124,58,237,0.03) 0%,transparent 50%),
+    radial-gradient(circle at 100% 50%,rgba(6,182,212,0.02) 0%,transparent 50%);
+}
+section:nth-child(even):not(.cs-section):not(.market-hero-section)::before{
+  background-image:
+    radial-gradient(circle at 100% 0%,rgba(236,72,153,0.04) 0%,transparent 50%),
+    radial-gradient(circle at 0% 100%,rgba(124,58,237,0.03) 0%,transparent 50%);
+}
+.container{position:relative;z-index:1}
+
+/* ── Section header decoration ── */
+.section-eyebrow{
+  position:relative;
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(124,58,237,0.08);
+  border:1px solid rgba(124,58,237,0.2);
+  padding:4px 14px;border-radius:100px;
+  font-size:0.72rem;
+}
+.section-eyebrow::before{
+  content:'';width:6px;height:6px;border-radius:50%;
+  background:var(--accent2);flex-shrink:0;
+  box-shadow:0 0 6px var(--accent2);
+}
+.glow-line{
+  width:60px;height:3px;margin:12px auto 18px;
+  background:linear-gradient(90deg,var(--accent),var(--pink),var(--cyan));
+  border-radius:2px;
+  box-shadow:0 0 12px rgba(124,58,237,0.5);
+  animation:borderGlow 2s ease-in-out infinite;
+}
+.section-title{
+  background:linear-gradient(135deg,var(--text) 0%,var(--text) 55%,var(--accent2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+[data-theme="dark"] .section-title{
+  background:linear-gradient(135deg,#e8e8f0 0%,#e8e8f0 55%,var(--accent2) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+
+/* ── Glassmorphism cards ── */
+.stat-card{
+  background:rgba(26,26,46,0.6);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,0.08);
+}
+[data-theme="light"] .stat-card{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(20px);
+  border:1px solid rgba(124,58,237,0.12);
+  box-shadow:0 4px 24px rgba(124,58,237,0.06);
+}
+.stat-card:hover{
+  background:rgba(26,26,46,0.8);
+  border-color:rgba(124,58,237,0.4);
+  box-shadow:0 16px 48px rgba(124,58,237,0.2),0 0 0 1px rgba(124,58,237,0.2);
+}
+[data-theme="light"] .stat-card:hover{
+  background:rgba(255,255,255,0.9);
+  border-color:rgba(124,58,237,0.3);
+  box-shadow:0 16px 48px rgba(124,58,237,0.12);
+}
+
+/* ── Framework cards glass ── */
+.fw-card{
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.06);
+}
+[data-theme="light"] .fw-card{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(0,0,0,0.07);
+  box-shadow:0 2px 20px rgba(124,58,237,0.05);
+}
+.fw-card:hover{
+  box-shadow:0 24px 64px rgba(0,0,0,0.4),0 0 0 1px var(--fw-color,var(--accent));
+}
+[data-theme="light"] .fw-card:hover{
+  box-shadow:0 20px 60px rgba(124,58,237,0.12),0 0 0 1px var(--fw-color,var(--accent));
+}
+
+/* ── Gradient border cards ── */
+.def-card,.method-card,.swarm-analogy,.swarm-case-card{
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,0.07);
+  transition:all 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+[data-theme="light"] .def-card,[data-theme="light"] .method-card,
+[data-theme="light"] .swarm-analogy,[data-theme="light"] .swarm-case-card{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(12px);
+  border:1px solid rgba(0,0,0,0.07);
+  box-shadow:0 2px 16px rgba(124,58,237,0.05);
+}
+.def-card:hover,.method-card:hover,.swarm-case-card:hover{
+  border-color:rgba(124,58,237,0.35);
+  box-shadow:0 20px 56px rgba(0,0,0,0.35),0 0 0 1px rgba(124,58,237,0.2);
+  transform:translateY(-5px);
+}
+[data-theme="light"] .def-card:hover,[data-theme="light"] .method-card:hover,
+[data-theme="light"] .swarm-case-card:hover{
+  box-shadow:0 16px 48px rgba(124,58,237,0.1),0 0 0 1px rgba(124,58,237,0.2);
+}
+
+/* ── Pattern display / tabs ── */
+.pattern-display{
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.07);
+}
+[data-theme="light"] .pattern-display{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(16px);
+  border:1px solid rgba(0,0,0,0.08);
+  box-shadow:0 4px 32px rgba(124,58,237,0.06);
+}
+.patterns-tabs{
+  background:rgba(26,26,46,0.4);
+  backdrop-filter:blur(12px);
+}
+[data-theme="light"] .patterns-tabs{
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(12px);
+}
+
+/* ── Comparison table ── */
+.cmp-table-wrap{
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(12px);
+}
+[data-theme="light"] .cmp-table-wrap{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 32px rgba(124,58,237,0.06);
+}
+.cmp-table thead tr{
+  background:rgba(124,58,237,0.08);
+}
+.cmp-table tbody tr:hover{
+  background:rgba(124,58,237,0.05);
+}
+
+/* ── Système diagram ── */
+.sys-layer{
+  backdrop-filter:blur(12px);
+  background:rgba(26,26,46,0.5);
+}
+[data-theme="light"] .sys-layer{
+  background:rgba(255,255,255,0.75);
+  backdrop-filter:blur(12px);
+  box-shadow:0 4px 24px rgba(0,0,0,0.06);
+}
+
+/* ── Quote block ── */
+.quote-block{
+  background:rgba(26,26,46,0.5);
+  backdrop-filter:blur(12px);
+}
+[data-theme="light"] .quote-block{
+  background:rgba(255,255,255,0.8);
+  backdrop-filter:blur(12px);
+}
+
+/* ── Section divider wave ── */
+.section-wave{
+  position:absolute;bottom:-2px;left:0;width:100%;overflow:hidden;line-height:0;z-index:2;
+}
+.section-wave svg{display:block;width:100%;height:48px;}
+.section-wave-top{
+  position:absolute;top:-2px;left:0;width:100%;overflow:hidden;line-height:0;z-index:2;transform:rotate(180deg);
+}
+
+/* ── Shimmering chip ── */
+.hero-uc-chip{
+  position:relative;overflow:hidden;
+}
+.hero-uc-chip::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent 0%,rgba(255,255,255,0.1) 50%,transparent 100%);
+  background-size:200% 100%;
+  animation:shimmer 3s ease-in-out infinite;
+}
+
+/* ── Light mode section alt ── */
+[data-theme="light"] section:not(.cs-section):not(.market-hero-section){
+  background:transparent;
+}
+[data-theme="light"] #systeme,[data-theme="light"] #comparaison,
+[data-theme="light"] #swarm,[data-theme="light"] #defis,
+[data-theme="light"] #sources{
+  background:linear-gradient(180deg,var(--bg2) 0%,var(--bg) 100%);
+}
+
+/* ── Scrollbar accent ── */
+::-webkit-scrollbar-thumb{
+  background:linear-gradient(to bottom,var(--accent),var(--pink));
+}
+
+/* ── TOC improvements ── */
+.toc a{
+  transition:all 0.2s;border-radius:0 6px 6px 0;
+}
+.toc a:hover{
+  color:var(--text);background:rgba(124,58,237,0.08);
+  border-left-color:rgba(124,58,237,0.5);
+}
+.toc a.active{
+  background:rgba(124,58,237,0.1);
+}
+
+/* ── Arch image glow ── */
+.arch-image img{
+  transition:all 0.4s;
+}
+.arch-image img:hover{
+  transform:scale(1.02);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4),0 0 0 1px rgba(124,58,237,0.2);
+}
+
+/* ── Hero CTA buttons ── */
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent) 0%,var(--pink) 100%);
+  position:relative;overflow:hidden;
+}
+.btn-primary::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.1) 0%,transparent 100%);
+  opacity:0;transition:opacity 0.2s;
+}
+.btn-primary:hover::after{opacity:1}
+
+/* ═══════════════════════════════════════
    RESPONSIVE
 ═══════════════════════════════════════ */
 @media(max-width:768px){
@@ -804,7 +1689,7 @@ footer p strong{color:var(--text)}
 
 <!-- ═══════════════════ NAVBAR ═══════════════════ -->
 <nav class="navbar" id="navbar">
-  <div class="nav-logo">🤖 Orchestration Agents</div>
+  <div class="nav-logo">Orchestration des agents</div>
   <!--ul class="nav-links">
     <li><a href="#intro">Concepts</a></li>
     <li><a href="#architectures">Architectures</a></li>
@@ -822,10 +1707,13 @@ footer p strong{color:var(--text)}
 </nav>
 <nav class="toc">
   <a href="#intro">Concepts</a>
+  <!--<a href="#evolution">Chronologie</a> -->
+  <!--<a href="#systeme">Vue système</a> -->
   <a href="#architectures">Architectures</a>
   <!-- <a href="#comparaison">Comparaison</a> -->
-  <a href="#swarm">Swarm</a>
   <a href="#frameworks">Frameworks</a>
+  <a href="#swarm">Swarm</a>
+  <a href="#protocoles">Protocoles</a>
   <a href="#importance">Marché</a>
   <a href="#defis">Limites</a>
   <a href="#methodologie">Méthodologie</a>
@@ -833,11 +1721,22 @@ footer p strong{color:var(--text)}
 </nav>
 <!-- ═══════════════════ HERO ═══════════════════ -->
 <section class="hero" id="home">
+  <div class="hero-aurora">
+    <div class="hero-grid"></div>
+    <div class="hero-orb hero-orb-1"></div>
+    <div class="hero-orb hero-orb-2"></div>
+    <div class="hero-orb hero-orb-3"></div>
+  </div>
   <div class="hero-inner">
     <div class="hero-badge"><span class="dot"></span>MOS 4.4 · NTIC · Veille Technologique</div>
+    <div class="hero-authors">
+      <span class="hero-author-item">KHALFA Youssef</span>
+      <span class="hero-author-sep">·</span>
+      <span class="hero-author-item hero-author-tutor">Tuteur&nbsp;: René CHALON</span>
+    </div>
     <h1>Orchestration des<br><span class="gradient">Agents</span></h1>
     <p class="hero-subtitle">
-      Du centralisé au décentralisé — comment coordonner des agents autonomes : qui fait quoi, dans quel ordre, avec quel niveau de contrôle.
+      Du centralisé au décentralisé ; comment coordonner des agents autonomes : qui fait quoi, dans quel ordre, avec quel niveau de contrôle.
     </p>
     <div class="hero-stats">
       <div class="stat-card"><span class="stat-number" data-target="3">0</span><span class="stat-label">Paradigmes fondamentaux</span></div>
@@ -848,58 +1747,146 @@ footer p strong{color:var(--text)}
     <div class="hero-usecases">
       <div class="hero-uc-label">Derrière ces usages, des agents :</div>
       <div class="hero-uc-chips">
-        <span class="hero-uc-chip">🔍 DeepSearch</span>
-        <span class="hero-uc-chip">🖼️ ChatGPT image</span>
-        <span class="hero-uc-chip">💬 Chatbots e-commerce</span>
-        <span class="hero-uc-chip">⚙️ Automation mails</span>
-        <span class="hero-uc-chip">🤖 Copilot / Cursor</span>
+        <span class="hero-uc-chip">DeepSearch</span>
+        <span class="hero-uc-chip">ChatGPT image</span>
+        <span class="hero-uc-chip">Chatbots e-commerce</span>
+        <span class="hero-uc-chip">Automation mails</span>
+        <span class="hero-uc-chip">Copilot / Cursor</span>
       </div>
     </div>
     <div class="hero-quote">
-      "On passe d'une <strong>IA qui répond</strong> à une <strong>IA qui exécute</strong> — la vraie question : comment orchestrer ?"
+      "On passe d'une <strong>IA qui répond</strong> à une <strong>IA qui exécute</strong> : la vraie question : comment orchestrer ?"
     </div>
     <div class="hero-cta">
-      <a href="#intro" class="btn btn-primary">🚀 Explorer la veille</a>
-      <a href="#methodologie" class="btn btn-outline">📋 Voir la méthodologie</a>
+      <a href="#intro" class="btn btn-primary">Explorer la veille</a>
+      <a href="#methodologie" class="btn btn-outline">Voir la méthodologie</a>
     </div>
   </div>
   <div class="scroll-indicator">↓</div>
 </section>
 
 <!-- ═══════════════════ INTRO ═══════════════════ -->
-<section id="intro">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">Contexte & Définitions</div>
-      <div class="glow-line"></div>
-      <h2 class="section-title">Agents, multi-agents, orchestration</h2>
-      <p class="section-desc">Derrière DeepSearch, les chatbots e-commerce, l'automatisation des mails — on trouve de plus en plus des agents. La vraie question : comment les orchestrer.</p>
-    </div>
+<section id="intro" class="cs-section">
 
-    <div class="definition-grid def-grid-3">
-      <div class="def-card reveal delay-1">
-        <div class="def-icon">🤖</div>
-        <h3>L'Agent Logiciel</h3>
-        <p>Composant <strong>autonome</strong> qui perçoit un état (capteurs, logs, messages, données), prend une décision selon des règles, puis agit via des interfaces : <strong>API, base de données, système de fichiers, réseau, exécution de tâches</strong>.</p>
+  <!-- Slide 1 -->
+  <div class="cs-slide active" style="--cs-accent:#a855f7;--cs-glow:rgba(168,85,247,0.4);background-image:url('https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1920&q=80')">
+    <div class="cs-overlay" style="background:linear-gradient(135deg,rgba(10,5,30,0.82),rgba(20,5,50,0.62))"></div>
+    <div class="cs-content">
+      <div class="cs-counter">01 <span>/ 03</span></div>
+      <div class="cs-eyebrow">Contexte &amp; Définitions</div>
+      <div class="cs-icon-wrap" style="border-color:var(--cs-accent);box-shadow:0 0 40px var(--cs-glow)">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cs-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/><circle cx="12" cy="16" r="1.2" fill="var(--cs-accent)"/></svg>
       </div>
-      <div class="def-card reveal delay-2">
-        <div class="def-icon">🔗</div>
-        <h3>Système Multi-Agents</h3>
-        <p>Plusieurs agents, chacun <strong>spécialisé</strong> dans un domaine. Ils doivent coordonner leurs actions pour éviter les doublons, les contradictions et les conflits de ressources.</p>
-      </div>
-      <div class="def-card reveal delay-3">
-        <div class="def-icon">🎯</div>
-        <h3>L'Orchestration</h3>
-        <p>Ce qui organise la collaboration entre agents — <strong>qui fait quoi, quand, avec quelles infos</strong> — et comment on évite les erreurs, gère les priorités, les validations et les conflits.</p>
-      </div>
+      <h2 class="cs-title">L'Agent <em style="font-style:normal;color:var(--cs-accent)">Logiciel</em></h2>
+      <p class="cs-desc">Un agent est un composant <strong>autonome</strong> qui perçoit son environnement, prend une décision, puis <strong>agit</strong> via des interfaces réelles : API, base de données, système de fichiers. Contrairement à un simple script, il boucle : observe, raisonne, agit, en continu.</p>
+      <div class="cs-tags"><span class="cs-tag">Perception</span><span class="cs-tag">Décision</span><span class="cs-tag">Action</span><span class="cs-tag">Autonomie</span></div>
     </div>
   </div>
 
+  <!-- Slide 2 -->
+  <div class="cs-slide" style="--cs-accent:#06b6d4;--cs-glow:rgba(6,182,212,0.4);background-image:url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80')">
+    <div class="cs-overlay" style="background:linear-gradient(135deg,rgba(0,15,30,0.82),rgba(0,30,50,0.62))"></div>
+    <div class="cs-content">
+      <div class="cs-counter">02 <span>/ 03</span></div>
+      <div class="cs-eyebrow">Contexte &amp; Définitions</div>
+      <div class="cs-icon-wrap" style="border-color:var(--cs-accent);box-shadow:0 0 40px var(--cs-glow)">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cs-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><path d="M12 7v4M12 11l-5.5 6M12 11l5.5 6"/></svg>
+      </div>
+      <h2 class="cs-title">Système <em style="font-style:normal;color:var(--cs-accent)">Multi-Agents</em></h2>
+      <p class="cs-desc">Plusieurs agents, chacun <strong>spécialisé</strong> dans un domaine précis. Ils collaborent vers un objectif commun tout en évitant doublons, contradictions et conflits de ressources. La <strong>division du travail portée à l'échelle logicielle</strong>.</p>
+      <div class="cs-tags"><span class="cs-tag">Spécialisation</span><span class="cs-tag">Collaboration</span><span class="cs-tag">Coordination</span><span class="cs-tag">Parallélisme</span></div>
+    </div>
+  </div>
 
+  <!-- Slide 3 -->
+  <div class="cs-slide" style="--cs-accent:#10b981;--cs-glow:rgba(16,185,129,0.4);background-image:url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=1920&q=80')">
+    <div class="cs-overlay" style="background:linear-gradient(135deg,rgba(0,20,15,0.82),rgba(0,40,25,0.62))"></div>
+    <div class="cs-content">
+      <div class="cs-counter">03 <span>/ 03</span></div>
+      <div class="cs-eyebrow">Contexte &amp; Définitions</div>
+      <div class="cs-icon-wrap" style="border-color:var(--cs-accent);box-shadow:0 0 40px var(--cs-glow)">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="var(--cs-accent)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+      </div>
+      <h2 class="cs-title">L'<em style="font-style:normal;color:var(--cs-accent)">Orchestration</em></h2>
+      <p class="cs-desc">L'orchestration détermine <strong>qui fait quoi, quand, et avec quelles informations</strong>. Elle pilote la séquence des agents, gère les priorités, valide les sorties et résout les conflits. C'est le mécanisme central qui transforme un ensemble d'agents en un <strong>système cohérent et fiable</strong>.</p>
+      <div class="cs-tags"><span class="cs-tag">Séquençage</span><span class="cs-tag">Priorités</span><span class="cs-tag">Validation</span><span class="cs-tag">Fiabilité</span></div>
+    </div>
+  </div>
 
+  <!-- Fleches -->
+  <button class="cs-arrow cs-prev" aria-label="Précédent"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+  <button class="cs-arrow cs-next" aria-label="Suivant"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg></button>
 
+  <!-- Dots -->
+  <div class="cs-dots">
+    <button class="cs-dot active"></button>
+    <button class="cs-dot"></button>
+    <button class="cs-dot"></button>
+  </div>
+
+  <div class="cs-progress"><div class="cs-progress-bar" id="csBar"></div></div>
 
 </section>
+
+<!-- ═══════════════════ EVOLUTION ═══════════════════ -->
+<section id="evolution" style="background:var(--bg2)">
+  <div class="container">
+    <div class="section-header reveal">
+      <div class="section-eyebrow">Chronologie</div>
+      <div class="glow-line"></div>
+      <h2 class="section-title">Évolution du domaine</h2>
+      <p class="section-desc">De la recherche académique à la production industrielle en 3 ans.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2022</div>
+        <div class="tl-content">
+          <div class="tl-title">ReAct & Chain-of-Thought — Les fondations</div>
+          <p class="tl-desc">Publication des papers fondateurs. Le pattern ReAct (Yao et al.) introduit le raisonnement intermédiaire avant l'action. Premiers agents tool-use expérimentaux.</p>
+          <div class="tl-chips"><span class="chip">ReAct Paper</span><span class="chip">Chain-of-Thought</span><span class="chip">Tool-use expérimental</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal delay-1">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2023</div>
+        <div class="tl-content">
+          <div class="tl-title">AutoGPT, BabyAGI — L'explosion open-source</div>
+          <p class="tl-desc">AutoGPT atteint 100k stars GitHub en quelques jours. Explosion des projets open-source. LangChain popularise les chaînes d'agents. Microsoft publie AutoGen.</p>
+          <div class="tl-chips"><span class="chip">AutoGPT 100k⭐</span><span class="chip">LangChain</span><span class="chip">AutoGen</span><span class="chip">BabyAGI</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal delay-2">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2024</div>
+        <div class="tl-content">
+          <div class="tl-title">LangGraph, CrewAI, MCP — Maturité industrielle</div>
+          <p class="tl-desc">Les frameworks de production s'imposent. Anthropic publie le Model Context Protocol (novembre 2024) comme standard interopérable. OpenAI lance Swarm. CrewAI explose.</p>
+          <div class="tl-chips"><span class="chip">LangGraph</span><span class="chip">CrewAI</span><span class="chip">MCP Protocol</span><span class="chip">OpenAI Swarm</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal delay-3">
+        <div class="tl-dot"></div>
+        <div class="tl-year">2025</div>
+        <div class="tl-content">
+          <div class="tl-title">Computer Use, Agents persistants — L'ère agentic</div>
+          <p class="tl-desc">Les agents interagissent avec des interfaces graphiques complètes. Claude Agent SDK, orchestration temps-réel, agents "coworker" entrent en production à grande échelle.</p>
+          <div class="tl-chips"><span class="chip">Computer Use</span><span class="chip">Agent SDK</span><span class="chip">Agents persistants</span><span class="chip">AI Coworker</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal delay-4">
+        <div class="tl-dot"></div>
+        <div class="tl-year">Demain</div>
+        <div class="tl-content">
+          <div class="tl-title">Sociétés d'agents & enjeux de gouvernance</div>
+          <p class="tl-desc">Des visions de "entreprises entièrement automatisées" et d'"AI as a coworker" émergent. Les enjeux d'alignement et de gouvernance des systèmes multi-agents deviennent centraux.</p>
+          <div class="tl-chips"><span class="chip">Auto-amélioration</span><span class="chip">Gouvernance IA</span><span class="chip">Alignement multi-agents</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="systeme">
   <div class="container">
 
@@ -913,37 +1900,108 @@ footer p strong{color:var(--text)}
       </p>
     </div>
 
-    <div class="pattern-display">
+    <div class="sys-diagram">
 
-      <div class="flow-visual">
-
-        <div class="flow-node">Utilisateur</div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-node alt">Orchestrateur</div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-node alt2">Agents spécialisés</div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-node">Outils</div>
-
-        <div class="flow-arrow">↓</div>
-
-        <div class="flow-node" style="background:var(--green)">
-          APIs / DB / Services
+      <!-- Couche 1 : Interface -->
+      <div class="sys-layer" style="--layer-color:#a855f7">
+        <div class="sys-layer-label">Interface</div>
+        <div class="sys-layer-nodes">
+          <div class="sys-node" style="--node-color:#a855f7">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Utilisateur
+          </div>
+          <div class="sys-node" style="--node-color:#a855f7">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            UI / API Gateway
+          </div>
         </div>
-
       </div>
 
-      <div class="arch-conclusion">
-        L’orchestrateur coordonne les agents, les agents utilisent des outils 
-        externes, et le système interagit avec un environnement réel.
+      <div class="sys-connector">
+        <div class="sys-conn-line"></div>
+        <span class="sys-conn-label">requête</span>
       </div>
 
+      <!-- Couche 2 : Orchestration -->
+      <div class="sys-layer sys-layer-main" style="--layer-color:#ec4899">
+        <div class="sys-layer-label">Orchestration</div>
+        <div class="sys-layer-nodes">
+          <div class="sys-node sys-node-lg" style="--node-color:#ec4899">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M4.22 4.22l2.12 2.12M17.66 17.66l2.12 2.12M2 12h3M19 12h3M4.22 19.78l2.12-2.12M17.66 6.34l2.12-2.12"/></svg>
+            Orchestrateur LLM
+            <span class="sys-node-sub">planification · routage · état global</span>
+          </div>
+          <div class="sys-node" style="--node-color:#f97316">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>
+            Mémoire / Contexte
+            <span class="sys-node-sub">court · long terme</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-connector">
+        <div class="sys-conn-line"></div>
+        <span class="sys-conn-label">délégation</span>
+      </div>
+
+      <!-- Couche 3 : Agents -->
+      <div class="sys-layer" style="--layer-color:#06b6d4">
+        <div class="sys-layer-label">Agents spécialisés</div>
+        <div class="sys-layer-nodes">
+          <div class="sys-node" style="--node-color:#06b6d4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            Agent Recherche
+          </div>
+          <div class="sys-node" style="--node-color:#06b6d4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Agent Rédaction
+          </div>
+          <div class="sys-node" style="--node-color:#06b6d4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+            Agent Code
+          </div>
+          <div class="sys-node" style="--node-color:#06b6d4">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Agent Validation
+          </div>
+        </div>
+      </div>
+
+      <div class="sys-connector">
+        <div class="sys-conn-line"></div>
+        <span class="sys-conn-label">appels outils</span>
+      </div>
+
+      <!-- Couche 4 : Outils -->
+      <div class="sys-layer" style="--layer-color:#10b981">
+        <div class="sys-layer-label">Outils & Environnement</div>
+        <div class="sys-layer-nodes">
+          <div class="sys-node" style="--node-color:#10b981">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            Web / APIs
+          </div>
+          <div class="sys-node" style="--node-color:#10b981">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            Base de données
+          </div>
+          <div class="sys-node" style="--node-color:#10b981">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/></svg>
+            Fichiers / RAG
+          </div>
+          <div class="sys-node" style="--node-color:#10b981">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"/><rect x="2" y="14" width="20" height="8" rx="2" ry="2"/><path d="M6 6h.01M6 18h.01"/></svg>
+            Serveurs MCP
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="sys-legend">
+      <div class="sys-legend-item"><span class="sys-legend-dot" style="background:#a855f7"></span>Interface utilisateur</div>
+      <div class="sys-legend-item"><span class="sys-legend-dot" style="background:#ec4899"></span>Couche d’orchestration</div>
+      <div class="sys-legend-item"><span class="sys-legend-dot" style="background:#06b6d4"></span>Agents spécialisés</div>
+      <div class="sys-legend-item"><span class="sys-legend-dot" style="background:#10b981"></span>Outils & services externes</div>
     </div>
 
   </div>
@@ -955,14 +2013,14 @@ footer p strong{color:var(--text)}
       <div class="section-eyebrow">Architectures</div>
       <div class="glow-line"></div>
       <h2 class="section-title">Du Centralisé au Décentralisé</h2>
-      <p class="section-desc">Trois paradigmes fondamentaux — chacun répond à un compromis différent entre contrôle, scalabilité et résilience.</p>
+      <p class="section-desc">Trois paradigmes fondamentaux chacun répond à un compromis différent entre contrôle, scalabilité et résilience.</p>
     </div>
 
-    <div class="patterns-tabs reveal">
-      <button class="tab-btn active" data-tab="centralized">🏛️ Centralisée</button>
-      <button class="tab-btn" data-tab="hierarchical">🌲 Hiérarchique</button>
-      <button class="tab-btn" data-tab="decentralized">🔗 Décentralisée</button>
-      <button class="tab-btn" data-tab="llmpatterns">⚙️ Patterns LLM</button>
+    <div class="patterns-tabs reveal">— 
+      <button class="tab-btn active" data-tab="centralized">Centralisée</button>
+      <button class="tab-btn" data-tab="hierarchical">Hiérarchique</button>
+      <button class="tab-btn" data-tab="decentralized">Décentralisée</button>
+      <button class="tab-btn" data-tab="llmpatterns">Patterns LLM</button>
     </div>
 
     <div class="tab-panel active" id="tab-centralized">
@@ -984,13 +2042,73 @@ footer p strong{color:var(--text)}
           <div class="flow-arrow">→</div>
           <div class="flow-node" style="background:var(--green)">Résultat agrégé</div>
         </div>
+        <div class="arch-layout">
+
+        <div class="arch-text">
+
+        <p>
+        Dans une orchestration <strong>centralisée</strong>, un orchestrateur unique
+        reçoit la demande, découpe le travail et distribue les tâches aux agents.
+        </p>
+
+        <p>
+        Il maintient l’état global : contexte, priorités et dépendances.
+        Il décide aussi l’ordre d’exécution et agrège les résultats.
+        </p>
+
+        <p>
+        Ce modèle offre une forte <strong>traçabilité</strong> et un débogage simple,
+        mais crée un <strong>point unique de défaillance</strong>.
+        </p>
+
+        </div>
+
+        <div class="arch-image">
+
+        <img src="images/centralized.webp" alt="Architecture centralisée agents">
+
+        </div>
+
+        </div>
+        <div class="arch-layout">
+
+        <div class="arch-text">
+
+        <p>
+        L’architecture de recherche avancée de <strong>Claude.ai</strong> , dévoilée en novembre 2024, illustre ce paradigme.
+        un <strong>Lead Agent (orchestrateur)</strong> central reçoit la requête utilisateur
+        et coordonne l’ensemble du pipeline.
+        </p>
+
+        <p>
+        Il dispose d’un accès direct aux outils (<em>search tools, MCP tools, memory,
+        run_subagent, complete_task</em>) et délègue à des sous-agents spécialisés :
+        plusieurs <strong>Search subagents</strong> parallèles pour la collecte d’information,
+        et un <strong>Citations subagent</strong> pour la vérification des sources.
+        </p>
+
+        <p>
+        L’orchestrateur agrège ensuite les résultats et produit un <strong>rapport final</strong>
+        renvoyé à l’utilisateur, garantissant une <strong>traçabilité complète</strong>
+        du flux, au prix d’un point unique de contrôle.
+        </p>
+
+        </div>
+
+        <div class="arch-image">
+
+        <img src="images/centralized2.webp" alt="Architecture centralisée agents">
+
+        </div>
+
+        </div>
         <div class="arch-conclusion">L'orchestrateur maintient l'état global (contexte, priorités, dépendances), décide l'ordre d'exécution, contrôle les entrées/sorties et peut imposer des validations avant de continuer.</div>
         <div class="pros-cons">
           <div class="pro-item">✓ Traçabilité complète des flux décisionnels</div>
-          <div class="pro-item">✓ Débogage plus facile — un seul endroit à inspecter</div>
+          <div class="pro-item">✓ Débogage plus facile , un seul endroit à inspecter</div>
           <div class="pro-item">✓ Moins de contradictions entre agents</div>
           <div class="con-item">✗ Latence et saturation si surcharge du centre</div>
-          <div class="con-item">✗ Point unique de défaillance — si l'orchestrateur tombe, tout s'arrête</div>
+          <div class="con-item">✗ Point unique de défaillance ,si l'orchestrateur tombe, tout s'arrête</div>
         </div>
         <div class="arch-verdict">Idéal pour prédictibilité et contrôle. Fragile dès qu'on cherche scalabilité et résilience.</div>
       </div>
@@ -1020,6 +2138,68 @@ footer p strong{color:var(--text)}
             </div>
           </div>
         </div>
+        <div class="arch-layout">
+
+        <div class="arch-text">
+
+        <p>
+        L’architecture <strong>hiérarchique</strong> organise les agents en niveaux.
+        Un superviseur fixe les objectifs globaux et délègue des sous-tâches
+        à des orchestrateurs intermédiaires.
+        </p>
+
+        <p>
+        Chaque niveau peut prendre des décisions locales,
+        tout en remontant des informations vers le niveau supérieur.
+        </p>
+
+        <p>
+        Cette structure améliore la <strong>scalabilité</strong> et la
+        <strong>modularité</strong>, mais nécessite des mécanismes
+        de coordination entre niveaux.
+        </p>
+
+        </div>
+
+        <div class="arch-image">
+
+        <img src="images/multi-agent-hierarchical-architecture.webp" alt="Architecture hiérarchique agents">
+
+        </div>
+
+        </div>
+<div class="arch-layout">
+
+    <div class="arch-text">
+
+        <p>
+        Dans l’architecture <strong>hub-and-spoke d’Azure</strong>, le composant central (le hub)
+        supervise les flux réseau, les diagnostics et les politiques de sécurité, tout en déléguant
+        la gestion des ressources aux réseaux spécialisés appelés spokes.
+        </p>
+
+        <p>
+        Chaque spoke héberge ses propres machines virtuelles et sous-réseaux, tandis que le hub
+        contrôle les tunnels forcés, les pare-feux, le VPN et les outils de monitoring comme Azure Monitor.
+        </p>
+
+        <p>
+        Ce modèle hiérarchique offre une <strong>modularité</strong> et une <strong>scalabilité</strong> élevées,
+        mais nécessite une <strong>coordination rigoureuse</strong> entre les couches réseau.
+        </p>
+
+    </div>
+
+    <div class="arch-image">
+
+        <img src="https://learn.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png"
+             alt="Architecture hiérarchique Azure Hub-and-Spoke">
+
+    </div>
+
+</div>
+
+
         <div class="arch-conclusion">Le niveau du haut fixe les objectifs. Le bas exécute et prend des décisions locales. Les informations remontent : avancement, alertes, conflits, métriques.</div>
         <div class="pros-cons">
           <div class="pro-item">✓ Scalabilité : travail réparti, moins de surcharge sur un seul point</div>
@@ -1040,6 +2220,36 @@ footer p strong{color:var(--text)}
           <div class="flow-node alt">↔ Agent C</div>
           <div style="width:100%;text-align:center;color:var(--muted);font-size:0.8rem">Coordination par négociation, consensus, ou enchères de tâches</div>
         </div>
+        <div class="arch-layout">
+
+        <div class="arch-text">
+
+        <p>
+        Dans une orchestration <strong>décentralisée</strong>,
+        il n’existe pas de contrôleur central.
+        Chaque agent agit à partir de son information locale.
+        </p>
+
+        <p>
+        La coordination émerge des interactions :
+        négociation, consensus, ou partage d’état.
+        </p>
+
+        <p>
+        Ce modèle est très <strong>robuste</strong> et
+        <strong>scalable</strong>, mais plus difficile à
+        contrôler et à auditer.
+        </p>
+
+        </div>
+
+        <div class="arch-image">
+
+        <img src="images/decentralized.webp" alt="Architecture décentralisée agents">
+
+        </div>
+
+        </div>
         <div class="arch-conclusion">Chaque agent observe son environnement, partage l'essentiel avec ses voisins (état, contraintes), et ils s'ajustent entre eux. La cohérence <strong>émerge</strong> des interactions locales.</div>
         <div class="pros-cons">
           <div class="pro-item">✓ Très robuste : si un agent tombe, le reste continue</div>
@@ -1057,20 +2267,20 @@ footer p strong{color:var(--text)}
         <p class="pattern-desc">Les 3 paradigmes se déclinent en patterns concrets pour les agents LLM. Les frameworks comme LangGraph, AutoGen et CrewAI implémentent ces patterns.</p>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:16px">
           <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
-            <div style="font-weight:700;margin-bottom:6px">→ Pipeline Séquentiel</div>
+            <div style="font-weight:700;margin-bottom:6px">Pipeline Séquentiel</div>
             <div style="font-size:0.82rem;color:var(--muted)">Agents en chaîne, sortie → entrée suivante. Simple, prévisible. Base du prompt chaining.</div>
           </div>
           <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
-            <div style="font-weight:700;margin-bottom:6px">⚡ Fan-out / Fan-in Parallèle</div>
+            <div style="font-weight:700;margin-bottom:6px">Fan-out / Fan-in Parallèle</div>
             <div style="font-size:0.82rem;color:var(--muted)">L'orchestrateur distribue des sous-tâches simultanément puis agrège. Rapide sur tâches indépendantes.</div>
           </div>
           <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
-            <div style="font-weight:700;margin-bottom:6px">🔁 Boucle Générateur / Critique</div>
+            <div style="font-weight:700;margin-bottom:6px">Boucle Générateur / Critique</div>
             <div style="font-size:0.82rem;color:var(--muted)">Un agent génère, un autre critique. Le cycle se répète jusqu'à validation. Qualité élevée, coût élevé.</div>
           </div>
           <div style="background:var(--bg2);border-radius:8px;padding:16px;border:1px solid var(--border)">
-            <div style="font-weight:700;margin-bottom:6px">🌐 Graphe d'État (DAG)</div>
-            <div style="font-size:0.82rem;color:var(--muted)">Agents sous forme de graphe avec transitions conditionnelles. Modèle de LangGraph — le plus utilisé en production.</div>
+            <div style="font-weight:700;margin-bottom:6px">Graphe d'État (DAG)</div>
+            <div style="font-size:0.82rem;color:var(--muted)">Agents sous forme de graphe avec transitions conditionnelles. Modèle de LangGraph . Le plus utilisé en production.</div>
           </div>
         </div>
       </div>
@@ -1091,88 +2301,75 @@ footer p strong{color:var(--text)}
       </p>
     </div>
 
-    <div class="fw-grid">
-
-      <div class="fw-card">
-        <h3>Centralisée</h3>
-        <p><strong>Principe :</strong> un orchestrateur unique contrôle les agents.</p>
-
-        <div class="pros-cons">
-          <div class="pro-item">✓ Contrôle complet</div>
-          <div class="pro-item">✓ Débogage simple</div>
-          <div class="con-item">✗ Point unique de défaillance</div>
-          <div class="con-item">✗ Scalabilité limitée</div>
-        </div>
-      </div>
-
-      <div class="fw-card">
-        <h3>Hiérarchique</h3>
-        <p><strong>Principe :</strong> plusieurs niveaux d'orchestrateurs.</p>
-
-        <div class="pros-cons">
-          <div class="pro-item">✓ Scalabilité</div>
-          <div class="pro-item">✓ Modularité</div>
-          <div class="con-item">✗ Coordination complexe</div>
-          <div class="con-item">✗ Risque de divergence</div>
-        </div>
-      </div>
-
-      <div class="fw-card">
-        <h3>Décentralisée</h3>
-        <p><strong>Principe :</strong> agents autonomes qui coopèrent.</p>
-
-        <div class="pros-cons">
-          <div class="pro-item">✓ Très robuste</div>
-          <div class="pro-item">✓ Très scalable</div>
-          <div class="con-item">✗ Coordination difficile</div>
-          <div class="con-item">✗ Audit compliqué</div>
-        </div>
-      </div>
-
+    <div class="cmp-table-wrap reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="cmp-criterion">Critère</th>
+            <th class="cmp-col cmp-central">
+              <span class="cmp-arch-dot" style="background:#7c3aed"></span>Centralisée
+            </th>
+            <th class="cmp-col cmp-hier">
+              <span class="cmp-arch-dot" style="background:#0ea5e9"></span>Hiérarchique
+            </th>
+            <th class="cmp-col cmp-decentral">
+              <span class="cmp-arch-dot" style="background:#10b981"></span>Décentralisée
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="cmp-criterion">Principe</td>
+            <td>Un orchestrateur unique pilote tous les agents</td>
+            <td>Plusieurs niveaux d'orchestrateurs imbriqués</td>
+            <td>Agents autonomes qui coopèrent entre eux</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Contrôle</td>
+            <td><span class="cmp-good">●●●</span> Complet</td>
+            <td><span class="cmp-med">●●○</span> Partiel par niveau</td>
+            <td><span class="cmp-bad">●○○</span> Distribué, émergent</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Scalabilité</td>
+            <td><span class="cmp-bad">●○○</span> Limitée</td>
+            <td><span class="cmp-med">●●○</span> Bonne</td>
+            <td><span class="cmp-good">●●●</span> Très élevée</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Résilience</td>
+            <td><span class="cmp-bad">●○○</span> Point unique de défaillance</td>
+            <td><span class="cmp-med">●●○</span> Dégradation partielle</td>
+            <td><span class="cmp-good">●●●</span> Très robuste</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Coordination</td>
+            <td><span class="cmp-good">●●●</span> Simple et directe</td>
+            <td><span class="cmp-med">●●○</span> Structurée mais complexe</td>
+            <td><span class="cmp-bad">●○○</span> Difficile à orchestrer</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Débogage</td>
+            <td><span class="cmp-good">●●●</span> Facile à tracer</td>
+            <td><span class="cmp-med">●●○</span> Traces hiérarchiques</td>
+            <td><span class="cmp-bad">●○○</span> Audit complexe</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Cas d'usage typique</td>
+            <td>Pipeline séquentiel, tâche bien définie</td>
+            <td>Systèmes modulaires, équipes d'agents spécialisés</td>
+            <td>Robotique en essaim, systèmes adaptatifs</td>
+          </tr>
+          <tr>
+            <td class="cmp-criterion">Exemples</td>
+            <td>LangGraph, Claude Agent SDK</td>
+            <td>AutoGen, CrewAI hiérarchique</td>
+            <td>Swarm robotics, protocoles A2A</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
-  </div>
-</section>
-<!-- ═══════════════════ SWARM ═══════════════════ -->
-<section id="swarm">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="section-eyebrow">Décentralisé — Cas concret</div>
-      <div class="glow-line"></div>
-      <h2 class="section-title">Robotique en Essaim</h2>
-      <p class="section-desc">La décentralisation appliquée au monde physique — l'essaim, ce n'est pas "plein de robots", c'est faire émerger une coordination collective à partir de règles locales.</p>
-    </div>
-    <div class="swarm-main reveal">
-      <div class="swarm-analogy">
-        <div class="swarm-analogy-icon">🐜</div>
-        <div>
-          <h3>L'analogie des fire ants</h3>
-          <p>Les fourmis de feu n'ont pas de chef. Pourtant, elles forment des structures collectives cohérentes parce que chacune suit des interactions locales. En robotique : avec des règles simples comme <em>"je garde ma distance"</em>, <em>"j'évite"</em>, <em>"je suis un signal"</em>, <em>"je me recale sur mes voisins"</em> — on obtient des comportements utiles : couvrir une zone, avancer en formation, suivre une cible.</p>
-        </div>
-      </div>
-      <div class="swarm-cases reveal">
-        <div class="swarm-case-card">
-          <div class="swarm-case-header">
-            <div class="swarm-case-icon">🛸</div>
-            <div>
-              <div class="swarm-case-name">Palladyne AI — Palladyne Pilot</div>
-              <div class="swarm-case-type">Drones autonomes en essaim</div>
-            </div>
-          </div>
-          <p>Logiciel de coordination multi-drones en <strong>boucle fermée</strong> : détecter → suivre → agir. Échanges d'informations adaptés quand la bande passante est limitée. Plusieurs drones et capteurs travaillent ensemble avec autonomie complète.</p>
-        </div>
-        <div class="swarm-case-card">
-          <div class="swarm-case-header">
-            <div class="swarm-case-icon">🤖</div>
-            <div>
-              <div class="swarm-case-name">Swarmbotics AI — Fire Ant</div>
-              <div class="swarm-case-type">Robots terrestres autonomes</div>
-            </div>
-          </div>
-          <p>Robots terrestres avec stack <strong>ANTS/Antsnet</strong>. Promesse : l'"autonomie d'essaim" — les robots se coordonnent et se répartissent les actions en temps réel, pendant que l'opérateur garde une vue d'ensemble via l'interface.</p>
-        </div>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -1250,64 +2447,152 @@ footer p strong{color:var(--text)}
   </div>
 </section>
 
-<!-- ═══════════════════ EVOLUTION ═══════════════════ -->
-<section id="evolution" style="background:var(--bg2)">
+<!-- ═══════════════════ SWARM ═══════════════════ -->
+<section id="swarm">
   <div class="container">
     <div class="section-header reveal">
-      <div class="section-eyebrow">Chronologie</div>
+      <div class="section-eyebrow">Décentralisé — Cas concret</div>
       <div class="glow-line"></div>
-      <h2 class="section-title">Évolution du domaine</h2>
-      <p class="section-desc">De la recherche académique à la production industrielle en 3 ans.</p>
+      <h2 class="section-title">Robotique en Essaim</h2>
+      <p class="section-desc">La décentralisation appliquée au monde physique ; l'essaim, ce n'est pas "plein de robots", c'est faire émerger une coordination collective à partir de règles locales.</p>
     </div>
-    <div class="timeline">
-      <div class="tl-item reveal">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2022</div>
-        <div class="tl-content">
-          <div class="tl-title">ReAct & Chain-of-Thought — Les fondations</div>
-          <p class="tl-desc">Publication des papers fondateurs. Le pattern ReAct (Yao et al.) introduit le raisonnement intermédiaire avant l'action. Premiers agents tool-use expérimentaux.</p>
-          <div class="tl-chips"><span class="chip">ReAct Paper</span><span class="chip">Chain-of-Thought</span><span class="chip">Tool-use expérimental</span></div>
-        </div>
+        <div class="swarm-main reveal">
+                        <!--analogy full screen-->
+      <div class="swarm-full">
+
+      <img src="images/fire-ants.jpg" alt="fire ants swarm">
+
+      <div class="swarm-overlay">
+
+      <h3>L'analogie des fire ants</h3>
+
+      <p>
+      Les fourmis de feu n'ont pas de chef. Pourtant, elles forment des structures collectives cohérentes parce que chacune suit des interactions locales. En robotique : avec des règles simples comme <em>"je garde ma distance"</em>, <em>"j'évite"</em>, <em>"je suis un signal"</em>, <em>"je me recale sur mes voisins"</em> — on obtient des comportements utiles : couvrir une zone, avancer en formation, suivre une cible.
+      </p>
+
       </div>
-      <div class="tl-item reveal delay-1">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2023</div>
-        <div class="tl-content">
-          <div class="tl-title">AutoGPT, BabyAGI — L'explosion open-source</div>
-          <p class="tl-desc">AutoGPT atteint 100k stars GitHub en quelques jours. Explosion des projets open-source. LangChain popularise les chaînes d'agents. Microsoft publie AutoGen.</p>
-          <div class="tl-chips"><span class="chip">AutoGPT 100k⭐</span><span class="chip">LangChain</span><span class="chip">AutoGen</span><span class="chip">BabyAGI</span></div>
-        </div>
+
       </div>
-      <div class="tl-item reveal delay-2">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2024</div>
-        <div class="tl-content">
-          <div class="tl-title">LangGraph, CrewAI, MCP — Maturité industrielle</div>
-          <p class="tl-desc">Les frameworks de production s'imposent. Anthropic publie le Model Context Protocol (novembre 2024) comme standard interopérable. OpenAI lance Swarm. CrewAI explose.</p>
-          <div class="tl-chips"><span class="chip">LangGraph</span><span class="chip">CrewAI</span><span class="chip">MCP Protocol</span><span class="chip">OpenAI Swarm</span></div>
+      
+      
+      <!--div class="swarm-analogy">
+        <div class="swarm-analogy-icon">🐜</div>
+        <div>
+          <h3>L'analogie des fire ants</h3>
+          <p>Les fourmis de feu n'ont pas de chef. Pourtant, elles forment des structures collectives cohérentes parce que chacune suit des interactions locales. En robotique : avec des règles simples comme <em>"je garde ma distance"</em>, <em>"j'évite"</em>, <em>"je suis un signal"</em>, <em>"je me recale sur mes voisins"</em> — on obtient des comportements utiles : couvrir une zone, avancer en formation, suivre une cible.</p>
         </div>
-      </div>
-      <div class="tl-item reveal delay-3">
-        <div class="tl-dot"></div>
-        <div class="tl-year">2025</div>
-        <div class="tl-content">
-          <div class="tl-title">Computer Use, Agents persistants — L'ère agentic</div>
-          <p class="tl-desc">Les agents interagissent avec des interfaces graphiques complètes. Claude Agent SDK, orchestration temps-réel, agents "coworker" entrent en production à grande échelle.</p>
-          <div class="tl-chips"><span class="chip">Computer Use</span><span class="chip">Agent SDK</span><span class="chip">Agents persistants</span><span class="chip">AI Coworker</span></div>
-        </div>
-      </div>
-      <div class="tl-item reveal delay-4">
-        <div class="tl-dot"></div>
-        <div class="tl-year">Demain</div>
-        <div class="tl-content">
-          <div class="tl-title">Sociétés d'agents & enjeux de gouvernance</div>
-          <p class="tl-desc">Des visions de "entreprises entièrement automatisées" et d'"AI as a coworker" émergent. Les enjeux d'alignement et de gouvernance des systèmes multi-agents deviennent centraux.</p>
-          <div class="tl-chips"><span class="chip">Auto-amélioration</span><span class="chip">Gouvernance IA</span><span class="chip">Alignement multi-agents</span></div>
-        </div>
+      </div-->
+
+      <div class="swarm-cases reveal">
+        <!--div class="swarm-case-card">
+          <div class="swarm-case-header">
+            <div class="swarm-case-icon">🛸</div>
+            <div>
+              <div class="swarm-case-name">Palladyne AI — Palladyne Pilot</div>
+              <div class="swarm-case-type">Drones autonomes en essaim</div>
+            </div>
+          </div>
+          <p>Logiciel de coordination multi-drones en <strong>boucle fermée</strong> : détecter → suivre → agir. Échanges d'informations adaptés quand la bande passante est limitée. Plusieurs drones et capteurs travaillent ensemble avec autonomie complète.</p>
+        </div-->
+
+        <!--div class="swarm-case-card">
+          <div class="swarm-case-header">
+            <div class="swarm-case-icon">🤖</div>
+            <div>
+              <div class="swarm-case-name">Swarmbotics AI — Fire Ant</div>
+              <div class="swarm-case-type">Robots terrestres autonomes</div>
+            </div>
+          </div>
+          <p>Robots terrestres avec stack <strong>ANTS/Antsnet</strong>. Promesse : l'"autonomie d'essaim" — les robots se coordonnent et se répartissent les actions en temps réel, pendant que l'opérateur garde une vue d'ensemble via l'interface.</p>
+        </div-->
       </div>
     </div>
+                  <!--analogy full screen-->
+      <div class="swarm-full">
+        <img src="images/Palladyne-ai-pilot.webp" alt="Palladyne Pilot — architecture UAV multi-agents">
+        <div class="swarm-overlay swarm-overlay-minimal">
+          <div class="swarm-overlay-badge">Cas réel · Essaim de drones</div>
+          <h3>Palladyne™ Pilot</h3>
+        </div>
+      </div>
+
+      <div class="palladyne-detail reveal">
+
+        <div class="palladyne-intro">
+          <p>
+            <strong>Palladyne Pilot</strong> est un logiciel d’orchestration multi-agents embarqué sur UAVs qui transforme une flotte de drones en une <strong>grille de détection auto-organisée</strong>. Chaque drone devient un nœud intelligent capable de prendre des décisions locales et de collaborer sans dépendre d’un contrôleur central.
+          </p>
+        </div>
+
+        <div class="palladyne-grid">
+
+          <div class="palladyne-card">
+            <div class="palladyne-card-icon" style="--pc:#06b6d4">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+            </div>
+            <div class="palladyne-card-body">
+              <div class="palladyne-card-title">Auto-orchestration en essaim</div>
+              <p>Les drones forment une <strong>grille de capteurs autonome</strong> autour de la zone d’intérêt. Chaque agent décide localement de son positionnement et de sa couverture. Aucun orchestrateur central ; la coordination émerge des interactions entre nœuds.</p>
+            </div>
+          </div>
+
+          <div class="palladyne-card">
+            <div class="palladyne-card-icon" style="--pc:#a855f7">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M16.24 7.76a6 6 0 0 1 0 8.49m-8.49-.01a6 6 0 0 1 0-8.49m11.31-2.82a10 10 0 0 1 0 14.14m-14.14 0a10 10 0 0 1 0-14.14"/></svg>
+            </div>
+            <div class="palladyne-card-body">
+              <div class="palladyne-card-title">Communication internode à basse bande</div>
+              <p>Les échanges entre drones sont réduits à l’<strong>essentiel</strong> : positions de cibles, état de charge, zone de couverture. Le protocole adapte la quantité d’information transmise à la bande passante disponible, assurant la coordination même en environnement dégradé.</p>
+            </div>
+          </div>
+
+          <div class="palladyne-card">
+            <div class="palladyne-card-icon" style="--pc:#ec4899">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 6l11 6 11-6M1 12l11 6 11-6"/></svg>
+            </div>
+            <div class="palladyne-card-body">
+              <div class="palladyne-card-title">Boucle percevoir → décider → agir</div>
+              <p>Chaque drone exécute en continu une boucle fermée : <strong>détecter</strong> une cible via ses capteurs, <strong>raisonner</strong> sur sa priorité et son positionnement optimal, puis <strong>agir</strong> — déplacement, suivi, transmission. Le système réagit en temps réel sans attendre d’instruction humaine.</p>
+            </div>
+          </div>
+
+          <div class="palladyne-card">
+            <div class="palladyne-card-icon" style="--pc:#10b981">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <div class="palladyne-card-body">
+              <div class="palladyne-card-title">Interface opérateur ATAK</div>
+              <p>L’opérateur au sol reçoit via <strong>ATAK</strong> (Android Team Awareness Kit) une vue consolidée : positions des cibles, tracks ID, flux vidéo multi-drones en temps réel. Les transmissions à basse bande suffisent à maintenir l’affichage à jour, le traitement lourd restant <strong>embarqué sur chaque drone</strong>.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="palladyne-verdict">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          Palladyne Pilot illustre un paradigme d’orchestration <strong>décentralisée pure</strong> : l’intelligence est distribuée sur chaque nœud, la coordination est émergente, et le système reste opérationnel même si plusieurs agents tombent en panne.
+        </div>
+
+      </div>
+                     <!--analogy full screen-->
+      <div class="swarm-full">
+
+      <img src="images/swarmrobotics.jpg" alt="swarm robotics fire ants">
+
+      <div class="swarm-overlay">
+
+      <h3>Swarm robotics AI: Robots terrestres autonomes</h3>
+
+      <p>
+      Avec leurs robots terrestres type Fire Ant et leur stack ANTS/Antsnet. Leur promesse, c’est justement l'autonomie d’essai : les robots se coordonnent et se répartissent les actions en temps réel, pendant que l’opérateur garde une vue d’ensemble via l’interface.
+</p>
+
+      </div>
+
+      </div>
   </div>
 </section>
+
 <section id="protocoles" style="background:var(--bg2)">
   <div class="container">
 
@@ -1348,48 +2633,47 @@ footer p strong{color:var(--text)}
   </div>
 </section>
 
-<section id="importance">
-  <div class="container">
+<section id="importance" class="market-hero">
+  <div class="market-bg" style="background-image:url(‘https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&q=80’)"></div>
+  <div class="market-overlay"></div>
+  <div class="container market-layout">
 
-    <div class="section-header">
-      <div class="section-eyebrow">Importance</div>
-      <div class="glow-line"></div>
-      <h2 class="section-title">Pourquoi ce sujet devient central</h2>
-      <p class="section-desc">
-        L’IA évolue d’un modèle conversationnel vers des systèmes capables 
-        d’agir et de déclencher des workflows.
+    <!-- ── Colonne gauche : narrative ── -->
+    <div class="market-text reveal">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.6)">Importance &amp; Marché</div>
+      <h2 class="market-title">D’une IA qui répond<br>à une IA qui <span class="market-accent">exécute</span></h2>
+      <p class="market-lead">
+        Si ce sujet prend autant de place aujourd’hui, c’est parce que le changement de paradigme est fondamental : là où un chatbot formule une réponse, un agent <strong>planifie des étapes</strong>, sélectionne des outils et <strong>déclenche des actions réelles</strong> dans des systèmes métier, sans intervention humaine à chaque étape.
       </p>
+      <p class="market-body">
+        Le graphe ci-contre l’illustre sans ambiguïté : le marché de l’Agentic AI s’emballe sur la prochaine décennie, signe qu’on bascule du prototype isolé à l’<strong>usage industrialisé à grande échelle</strong>. Et quand un domaine s’industrialise, la question ne se pose plus en termes de faisabilité mais en termes de <em>robustesse</em>.
+      </p>
+      <p class="market-body">
+        C’est exactement là que l’orchestration devient critique : il faut savoir choisir entre une architecture <strong>centralisée</strong> (contrôle total, point unique de défaillance), <strong>hiérarchique</strong> (délégation structurée) ou <strong>décentralisée</strong> (résilience, coordination plus complexe) selon le contexte, les contraintes de fiabilité et le niveau de tolérance aux erreurs accepté.
+      </p>
+      <div class="market-stats">
+        <div class="mkt-stat">
+          <span class="mkt-num">$47 Md</span>
+          <span class="mkt-lbl">taille estimée du marché en 2030</span>
+        </div>
+        <div class="mkt-divider"></div>
+        <div class="mkt-stat">
+          <span class="mkt-num">+40%</span>
+          <span class="mkt-lbl">TCAC prévu 2025–2034</span>
+        </div>
+        <div class="mkt-divider"></div>
+        <div class="mkt-stat">
+          <span class="mkt-num">2025</span>
+          <span class="mkt-lbl">point de bascule prototype → production</span>
+        </div>
+      </div>
     </div>
 
-    <div class="definition-grid">
-
-      <div class="def-card">
-        <div class="def-icon">⚙️</div>
-        <h3>Automatisation intelligente</h3>
-        <p>
-          Les agents peuvent planifier des étapes, utiliser des outils
-          et automatiser des tâches complexes.
-        </p>
-      </div>
-
-      <div class="def-card">
-        <div class="def-icon">💼</div>
-        <h3>Adoption industrielle</h3>
-        <p>
-          Entreprises et startups développent des assistants capables
-          d'exécuter des processus métiers complets.
-        </p>
-      </div>
-
-      <div class="def-card">
-        <div class="def-icon">📈</div>
-        <h3>Marché en croissance</h3>
-        <p>
-          Le marché de l’Agentic AI pourrait atteindre plusieurs dizaines
-          de milliards de dollars d’ici 2030.
-        </p>
-      </div>
-
+    <!-- ── Colonne droite : graphe ── -->
+    <div class="market-chart reveal delay-2">
+      <div class="market-chart-label">North America Agentic AI Market Size, 2021–2034 (USD Billion)</div>
+      <img src="images/market-size.png" alt="Agentic AI Market Size 2021-2034 — Fortune Business Insights" class="market-chart-img"/>
+      <div class="market-chart-source">Source : Fortune Business Insights, 2025</div>
     </div>
 
   </div>
@@ -1402,12 +2686,12 @@ footer p strong{color:var(--text)}
       <div class="section-eyebrow">Limites & Perspectives</div>
       <div class="glow-line"></div>
       <h2 class="section-title">Défis des systèmes multi-agents</h2>
-      <p class="section-desc">Pour les agents autonomes — LLM ou robotiques — trois limites reviennent systématiquement, avec des pistes de réponse émergentes.</p>
+      <p class="section-desc">Pour les agents autonomes , LLM ou robotiques , trois limites reviennent systématiquement, avec des pistes de réponse émergentes.</p>
     </div>
     <div class="challenges-grid">
       <div class="challenge problem reveal delay-1">
         <div class="ch-header"><span class="ch-badge">Limite</span><h3>Fiabilité</h3></div>
-        <p>Le modèle peut produire quelque chose de plausible mais faux. Dans un système agentique, l'erreur ne reste pas dans la sortie — elle <strong>se transforme en action</strong> et se propage aux agents suivants.</p>
+        <p>Le modèle peut produire quelque chose de plausible mais faux. Dans un système agentique, l'erreur ne reste pas dans la sortie ; elle <strong>se transforme en action</strong> et se propage aux agents suivants.</p>
       </div>
       <div class="challenge solution reveal delay-2">
         <div class="ch-header"><span class="ch-badge">Réponse</span><h3>Agents vérificateurs & Guardrails</h3></div>
@@ -1431,7 +2715,7 @@ footer p strong{color:var(--text)}
       </div>
       <div class="challenge problem reveal delay-3">
         <div class="ch-header"><span class="ch-badge">Limite</span><h3>Interopérabilité entre agents</h3></div>
-        <p>Chaque framework définit ses propres conventions. La délégation et la coordination entre agents hétérogènes restent "bricolées" — il n'existe pas de langage commun.</p>
+        <p>Chaque framework définit ses propres conventions. La délégation et la coordination entre agents hétérogènes restent "bricolées" , il n'existe pas de langage commun.</p>
       </div>
       <div class="challenge solution reveal delay-4">
         <div class="ch-header"><span class="ch-badge">Perspective</span><h3>Protocole A2A (Agent-to-Agent)</h3></div>
@@ -1453,23 +2737,118 @@ footer p strong{color:var(--text)}
     <div class="method-grid">
       <div class="method-card reveal delay-1">
         <div class="method-num">1</div>
-        <div>
+        <div style="width:100%">
           <h3>Identification des sources</h3>
-          <p>Sélection selon trois critères : fiabilité (institutions de recherche, entreprises leaders), fraîcheur (publications 2023–2025) et diversité (académique, industriel, communautaire).</p>
+          <p>La sélection des sources repose sur trois critères : la <strong>fiabilité</strong> (institutions de recherche reconnues et entreprises leaders du secteur), la <strong>fraîcheur</strong> (publications comprises entre 2023 et 2026) et la <strong>diversité</strong> des points de vue couverts.</p>
+
+          <div class="method-sub">
+            <div class="method-sub-label">Ciblage par type de source</div>
+            <div class="src-type-rows">
+              <div class="src-type-row">
+                <span class="src-type-label stl-academic">Académique</span>
+                <p style="margin:0;font-size:0.8rem;color:var(--muted);line-height:1.6">Prépublications arXiv (cs.MA et cs.AI), actes de conférences IEEE et ACM, revues Nature et E3S Web of Conferences.</p>
+              </div>
+              <div class="src-type-row">
+                <span class="src-type-label stl-industry">Industriel</span>
+                <p style="margin:0;font-size:0.8rem;color:var(--muted);line-height:1.6">Blogs techniques et notes de recherche publiés par Anthropic, Google, Microsoft Research et OpenAI.</p>
+              </div>
+              <div class="src-type-row">
+                <span class="src-type-label stl-community">Communauté</span>
+                <p style="margin:0;font-size:0.8rem;color:var(--muted);line-height:1.6">Dépôts GitHub Trending, fils Reddit (r/MachineLearning, r/LangChain) et forum Hugging Face.</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="method-card reveal delay-2">
         <div class="method-num">2</div>
-        <div>
+        <div style="width:100%">
           <h3>Flux RSS & Alertes automatiques</h3>
-          <p>Abonnement aux flux RSS d'Anthropic, LangChain, OpenAI, Microsoft Research via Feedly. Alertes Google Scholar sur les mots-clés : "multi-agent systems", "LLM orchestration".</p>
+          <p>Abonnements Feedly et alertes Google Scholar configurées sur trois axes thématiques. Fréquence de consultation : hebdomadaire.</p>
+
+          <div class="method-sub">
+            <div class="method-sub-label">Flux RSS — Feedly</div>
+            <div class="rss-list">
+              <span class="rss-tag">Anthropic Engineering</span>
+              <span class="rss-tag">LangChain Blog</span>
+              <span class="rss-tag">OpenAI Research</span>
+              <span class="rss-tag">Microsoft Research AI</span>
+              <span class="rss-tag">DeepMind Blog</span>
+              <span class="rss-tag">Hugging Face Blog</span>
+              <span class="rss-tag">Google AI Blog</span>
+              <span class="rss-tag">arXiv cs.MA</span>
+              <span class="rss-tag">arXiv cs.AI</span>
+            </div>
+          </div>
+
+          <div class="method-sub">
+            <div class="method-sub-label">Requêtes avancées — Google Scholar</div>
+
+            <div class="query-block"><span class="query-kw">"agent orchestration"</span> <span class="query-op">AND</span> (<span class="query-kw">framework</span> <span class="query-op">OR</span> <span class="query-kw">architecture</span>)
+<span class="query-op">AND</span> (<span class="query-kw">evaluation</span> <span class="query-op">OR</span> <span class="query-kw">benchmark</span>) <span class="query-range">2024..2026</span></div>
+
+            <div class="query-block"><span class="query-kw">centralized</span> <span class="query-op">AND</span> <span class="query-kw">decentralized</span> <span class="query-op">AND</span> (<span class="query-kw">"multi-agent"</span> <span class="query-op">OR</span> <span class="query-kw">MAS</span>)
+<span class="query-op">AND</span> (<span class="query-kw">trade-off</span> <span class="query-op">OR</span> <span class="query-kw">comparison</span> <span class="query-op">OR</span> <span class="query-kw">"comparative study"</span>)</div>
+
+            <div class="query-block"><span class="query-kw">"swarm robotics"</span> <span class="query-op">AND</span> (<span class="query-kw">"collective intelligence"</span> <span class="query-op">OR</span> <span class="query-kw">"self-organization"</span>)
+<span class="query-op">AND</span> (<span class="query-kw">model</span> <span class="query-op">OR</span> <span class="query-kw">framework</span>)</div>
+          </div>
         </div>
       </div>
-      <div class="method-card reveal delay-3">
+      <div class="method-card reveal delay-3" style="grid-row:span 2">
         <div class="method-num">3</div>
-        <div>
-          <h3>Collecte & Tri dans Zotero</h3>
-          <p>Lecture hebdomadaire des flux. Tri selon une grille d'évaluation (pertinence, nouveauté, impact). Articles retenus importés dans Zotero avec tags et résumés structurés.</p>
+        <div style="width:100%">
+          <h3>Collecte &amp; Tri dans Zotero</h3>
+          <p>Zotero a été choisi pour sa capacité à centraliser des sources hétérogènes (PDF, pages web, prépublications arXiv) et à les annoter avec des résumés et des tags. Chaque article retenu lors de la lecture hebdomadaire est d'abord déposé dans <strong>00_INBOX</strong>, puis reclassé manuellement dans la sous-collection correspondant à son thème principal.</p>
+
+          <div class="method-sub">
+            <div class="method-sub-label">Structure de la bibliothèque</div>
+            <div class="zotero-tree">
+              <div class="zt-root">My Library</div>
+              <div class="zt-collection">
+                <div class="zt-collection-title">Agent orchestration</div>
+                <div class="zt-item">
+                  <span class="zt-name">00_INBOX</span>
+                  <span class="zt-desc">— articles entrants, non encore triés</span>
+                  <span class="zt-badge zt-badge-in">FLUX</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">10_Centralise</span>
+                  <span class="zt-desc">— orchestration centralisée</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">20_Decentralise_Distribue</span>
+                  <span class="zt-desc">— architectures distribuées</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">30_Coordination_Protocols</span>
+                  <span class="zt-desc">— MCP, A2A, ACP, ANP</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">40_Swarm_Robotics</span>
+                  <span class="zt-desc">— intelligence collective, essaims</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">50_Prod_Industrialisation</span>
+                  <span class="zt-desc">— mise en production, fiabilité</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">60_Genral_Concept</span>
+                  <span class="zt-desc">— fondamentaux et concepts généraux</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">90_A_Lire</span>
+                  <span class="zt-desc">— backlog de lecture</span>
+                  <span class="zt-badge zt-badge-read">BACKLOG</span>
+                </div>
+                <div class="zt-item">
+                  <span class="zt-name">99_Clés_papiers</span>
+                  <span class="zt-desc">— références incontournables</span>
+                  <span class="zt-badge zt-badge-key">CLÉS</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="method-card reveal delay-4">
@@ -1479,18 +2858,110 @@ footer p strong{color:var(--text)}
           <p>Identification des tendances transversales, comparaison des frameworks, évaluation de la maturité (TRL). Session mensuelle approfondie de consolidation des connaissances.</p>
         </div>
       </div>
-      <div class="method-card reveal delay-1">
+      <div class="method-card reveal delay-1" style="border-right:none">
         <div class="method-num">5</div>
         <div>
           <h3>Diffusion & Restitution</h3>
           <p>Présentation orale devant les pairs, wiki de veille en ligne (ce document), rapport final sur Moodle. La veille sera maintenue au-delà du cours via les alertes configurées.</p>
         </div>
       </div>
-      <div class="method-card reveal delay-2" style="background:var(--surface2)">
-        <div class="method-num" style="background:linear-gradient(135deg,var(--cyan),var(--green))">🛠</div>
-        <div>
-          <h3>Outils utilisés</h3>
-          <p>Zotero (bibliographie), Feedly (RSS), Google Scholar Alerts, GitHub Trending, ArXiv, YouTube (conférences NeurIPS, ICLR…), Discord (communautés LangChain, Hugging Face).</p>
+      <div class="method-card tools-used-card reveal delay-2">
+        <div style="display:flex;align-items:center;gap:16px">
+          <div class="method-num" style="background:linear-gradient(135deg,var(--cyan),var(--green))">🛠</div>
+          <h3 style="font-size:1rem">Outils utilisés</h3>
+        </div>
+        <div class="tools-logo-grid">
+
+          <!-- Ligne 1 : sm  md  LG  md  sm  (symétrique, pivot GitHub) -->
+          <div class="tl-row">
+
+            <div class="tool-logo-item tl-sm" style="--tool-glow:rgba(66,133,244,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(66,133,244,0.08)">
+                <img src="https://cdn.simpleicons.org/googlescholar/4285F4" alt="Google Scholar" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Google Scholar</span>
+              <span class="tool-logo-role">Alertes académiques</span>
+            </div>
+
+            <div class="tool-logo-item tl-md" style="--tool-glow:rgba(43,178,76,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(43,178,76,0.08)">
+                <img src="https://cdn.simpleicons.org/feedly/2BB24C" alt="Feedly" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Feedly</span>
+              <span class="tool-logo-role">Agrégateur RSS</span>
+            </div>
+
+            <div class="tool-logo-item tl-lg" style="--tool-glow:rgba(100,100,120,0.45)">
+              <div class="tool-logo-icon" style="background:rgba(100,100,120,0.08)">
+                <img src="https://cdn.simpleicons.org/github/181717" class="github-adaptive" alt="GitHub" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">GitHub</span>
+              <span class="tool-logo-role">Trending & open source</span>
+            </div>
+
+            <div class="tool-logo-item tl-md" style="--tool-glow:rgba(204,41,54,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(204,41,54,0.08)">
+                <img src="https://cdn.simpleicons.org/zotero/CC2936" alt="Zotero" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Zotero</span>
+              <span class="tool-logo-role">Bibliographie</span>
+            </div>
+
+            <div class="tool-logo-item tl-sm" style="--tool-glow:rgba(255,210,30,0.45)">
+              <div class="tool-logo-icon" style="background:rgba(255,210,30,0.10)">
+                <img src="https://cdn.simpleicons.org/huggingface/FFD21E" alt="Hugging Face" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Hugging Face</span>
+              <span class="tool-logo-role">Modèles & datasets</span>
+            </div>
+
+          </div>
+
+          <!-- Ligne 2 : md  LG  LG  LG  md  (centré sous ligne 1) -->
+          <div class="tl-row">
+
+            <div class="tool-logo-item tl-md" style="--tool-glow:rgba(179,27,27,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(179,27,27,0.08)">
+                <img src="https://cdn.simpleicons.org/arxiv/B31B1B" alt="ArXiv" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">ArXiv</span>
+              <span class="tool-logo-role">Prépublications</span>
+            </div>
+
+            <div class="tool-logo-item tl-lg" style="--tool-glow:rgba(255,0,0,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(255,0,0,0.08)">
+                <img src="https://cdn.simpleicons.org/youtube/FF0000" alt="YouTube" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">YouTube</span>
+              <span class="tool-logo-role">Conférences NeurIPS, ICLR</span>
+            </div>
+
+            <div class="tool-logo-item tl-lg" style="--tool-glow:rgba(255,69,0,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(255,69,0,0.08)">
+                <img src="https://cdn.simpleicons.org/reddit/FF4500" alt="Reddit" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Reddit</span>
+              <span class="tool-logo-role">Communautés r/MachineLearning</span>
+            </div>
+
+            <div class="tool-logo-item tl-lg" style="--tool-glow:rgba(80,80,80,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(100,100,100,0.08)">
+                <img src="https://cdn.simpleicons.org/x/000000" class="x-adaptive" alt="X / Twitter" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">X / Twitter</span>
+              <span class="tool-logo-role">Veille temps réel</span>
+            </div>
+
+            <div class="tool-logo-item tl-md" style="--tool-glow:rgba(32,178,205,0.4)">
+              <div class="tool-logo-icon" style="background:rgba(32,178,205,0.08)">
+                <img src="https://cdn.simpleicons.org/perplexity/1FB8CD" alt="Perplexity" loading="lazy"/>
+              </div>
+              <span class="tool-logo-name">Perplexity</span>
+              <span class="tool-logo-role">Recherche augmentée</span>
+            </div>
+
+          </div>
+
         </div>
       </div>
     </div>
@@ -1522,69 +2993,181 @@ footer p strong{color:var(--text)}
     <div class="sources-filter reveal">
       <button class="filter-btn active" data-filter="all">Tout</button>
       <button class="filter-btn" data-filter="arxiv">ArXiv</button>
-      <button class="filter-btn" data-filter="blog">Blog</button>
-      <button class="filter-btn" data-filter="github">GitHub</button>
-      <button class="filter-btn" data-filter="doc">Docs</button>
-      <button class="filter-btn" data-filter="video">Vidéo</button>
+      <button class="filter-btn" data-filter="journal">Journal / Conf.</button>
+      <button class="filter-btn" data-filter="blog">Blog / Forum</button>
+      <button class="filter-btn" data-filter="doc">Docs / Specs</button>
+      <button class="filter-btn" data-filter="report">Rapports</button>
     </div>
     <div class="sources-grid">
+
+      <!-- ── ARXIV ── -->
       <div class="source-card reveal delay-1" data-type="arxiv">
         <span class="src-type src-arxiv">ArXiv</span>
-        <h4>ReAct: Synergizing Reasoning and Acting in Language Models</h4>
-        <p>Yao et al., 2022. Paper fondateur du pattern ReAct utilisé dans la majorité des agents modernes.</p>
+        <h4><a href="https://arxiv.org/abs/2510.24937" target="_blank" rel="noopener">OrchVis: Hierarchical Multi-Agent Orchestration for Human Oversight</a></h4>
+        <p>Zhou, J. (2025). Système de supervision hiérarchique avec visualisation de l'orchestration multi-agents. arXiv:2510.24937.</p>
       </div>
+
       <div class="source-card reveal delay-2" data-type="arxiv">
         <span class="src-type src-arxiv">ArXiv</span>
-        <h4>A Survey on LLM-based Autonomous Agents</h4>
-        <p>Wang et al., 2023. Panorama complet des architectures et capacités des agents LLM.</p>
+        <h4><a href="https://arxiv.org/abs/2503.13754" target="_blank" rel="noopener">From Autonomous Agents to Integrated Systems: Orchestrated Distributed Intelligence</a></h4>
+        <p>Tallam, K. (mars 2025). Nouveau paradigme d'IA distribuée orchestrée. arXiv:2503.13754.</p>
       </div>
-      <div class="source-card reveal delay-3" data-type="blog">
-        <span class="src-type src-blog">Blog</span>
-        <h4>Building effective agents — Anthropic</h4>
-        <p>Guide officiel sur les patterns : prompt chaining, routing, parallélisation (2024).</p>
-      </div>
-      <div class="source-card reveal delay-4" data-type="doc">
-        <span class="src-type src-doc">Docs</span>
-        <h4>LangGraph Documentation</h4>
-        <p>Documentation officielle avec tutoriels, patterns et exemples de systèmes multi-agents.</p>
-      </div>
-      <div class="source-card reveal delay-1" data-type="github">
-        <span class="src-type src-github">GitHub</span>
-        <h4>microsoft/autogen</h4>
-        <p>Repository AutoGen avec exemples et patterns d'architecture (Microsoft Research).</p>
-      </div>
-      <div class="source-card reveal delay-2" data-type="blog">
-        <span class="src-type src-blog">Blog</span>
-        <h4>Introducing the Model Context Protocol — Anthropic</h4>
-        <p>Spécification du protocole MCP, standard émergent pour l'interopérabilité (nov. 2024).</p>
-      </div>
+
       <div class="source-card reveal delay-3" data-type="arxiv">
         <span class="src-type src-arxiv">ArXiv</span>
-        <h4>AgentBench: Evaluating LLMs as Agents</h4>
-        <p>Liu et al., 2023. Benchmark des capacités des LLMs dans des environnements réels.</p>
+        <h4><a href="https://arxiv.org/abs/2508.07001" target="_blank" rel="noopener">Consensus-based Decentralized Multi-agent RL for Random Access Network Optimization</a></h4>
+        <p>Oh, M. S., Zhang, Z., Hairi, F. N. U., Velasquez, A., Liu, J. (août 2025). arXiv:2508.07001.</p>
       </div>
-      <div class="source-card reveal delay-4" data-type="video">
-        <span class="src-type src-video">Vidéo</span>
-        <h4>Multi-Agent AI Systems — Stanford CS25 (2024)</h4>
-        <p>Conférence Stanford sur les systèmes multi-agents LLM et enjeux de recherche.</p>
+
+      <div class="source-card reveal delay-4" data-type="arxiv">
+        <span class="src-type src-arxiv">ArXiv</span>
+        <h4><a href="https://arxiv.org/abs/2601.02577" target="_blank" rel="noopener">Orchestral AI: A Framework for Agent Orchestration</a></h4>
+        <p>Roman, A. & Roman, J. (jan. 2026). Framework complet pour l'orchestration d'agents IA. arXiv:2601.02577.</p>
       </div>
+
+      <div class="source-card reveal delay-1" data-type="arxiv">
+        <span class="src-type src-arxiv">ArXiv</span>
+        <h4><a href="https://arxiv.org/abs/2508.12683" target="_blank" rel="noopener">A Taxonomy of Hierarchical Multi-Agent Systems: Design Patterns, Coordination Mechanisms, and Industrial Applications</a></h4>
+        <p>Moore, D. J. (août 2025). Taxonomie et patterns de conception des systèmes multi-agents hiérarchiques. arXiv:2508.12683.</p>
+      </div>
+
+      <div class="source-card reveal delay-2" data-type="arxiv">
+        <span class="src-type src-arxiv">ArXiv</span>
+        <h4>A Survey of Agent Interoperability Protocols: MCP, ACP, A2A, ANP</h4>
+        <p>2025. Panorama comparatif des protocoles d'interopérabilité entre agents IA (MCP, ACP, A2A, ANP).</p>
+      </div>
+
+      <div class="source-card reveal delay-3" data-type="arxiv">
+        <span class="src-type src-arxiv">ArXiv</span>
+        <h4><a href="https://arxiv.org/html/2506.12508v1" target="_blank" rel="noopener">Advancing Multi-Agent Systems Through Model Context Protocol</a></h4>
+        <p>2025. Analyse de l'apport du protocole MCP pour les systèmes multi-agents modernes. arXiv:2506.12508.</p>
+      </div>
+
+      <!-- ── JOURNAL / CONFÉRENCE ── -->
+      <div class="source-card reveal delay-4" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://ieeexplore.ieee.org/abstract/document/11139307" target="_blank" rel="noopener">Decentralized Coordination of Intelligent Robot Swarms</a></h4>
+        <p>Kyzyrkanov, A. et al. (mai 2025). IEEE SIST, Astana, Kazakhstan. DOI: 10.1109/SIST61657.2025.11139307.</p>
+      </div>
+
+      <div class="source-card reveal delay-1" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://www.e3s-conferences.org/10.1051/e3sconf/202563802009" target="_blank" rel="noopener">Intelligent Agent Orchestration for Climate-Resilient Energy Systems</a></h4>
+        <p>Kravari, K. et al. (2025). E3S Web of Conferences, vol. 638, 02009. DOI: 10.1051/e3sconf/202563802009.</p>
+      </div>
+
+      <div class="source-card reveal delay-2" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://www.nature.com/articles/s41467-025-61985-7" target="_blank" rel="noopener">A collective intelligence model for swarm robotics applications</a></h4>
+        <p>Nitti, A., de Tullio, M. D., Federico, I., Carbone, G. (juil. 2025). Nature Communications. DOI: 10.1038/s41467-025-61985-7.</p>
+      </div>
+
+      <div class="source-card reveal delay-3" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://www.researchgate.net/publication/392070809" target="_blank" rel="noopener">A Comparative Study of Centralized vs Decentralized Agent Architectures in Financial Forecasting</a></h4>
+        <p>Karaca, E., Güler, Z., Samuel, A. (mai 2025). Analyse comparative des architectures centralisées et décentralisées.</p>
+      </div>
+
+      <div class="source-card reveal delay-4" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://www.researchgate.net/profile/Anup-Rao-4/publication/395938318" target="_blank" rel="noopener">Multi-Agent AI Orchestration Using MCP and Semantic Kernel for Autonomous Enterprise Systems</a></h4>
+        <p>Rao, A. (fév. 2025). Journal of Information Systems Engineering & Management.</p>
+      </div>
+
+      <div class="source-card reveal delay-1" data-type="journal">
+        <span class="src-type src-journal">Journal</span>
+        <h4><a href="https://www.authorea.com/doi/full/10.36227/techrxiv.176238026.60445463" target="_blank" rel="noopener">Orchestrating Autonomy: Patterns, Protocols, and Governance for Enterprise Agentic AI</a></h4>
+        <p>Myla, C. K. R. & Vyas, K. (2025). Gouvernance et patterns d'orchestration pour l'IA agentique d'entreprise.</p>
+      </div>
+
+      <div class="source-card reveal delay-2" data-type="journal">
+        <span class="src-type src-journal">Conférence</span>
+        <h4><a href="https://ieeexplore.ieee.org/abstract/document/11107050" target="_blank" rel="noopener">Decentralized Coordination in Robotic Swarms: Adaptive Strategy for Shared Resource Management</a></h4>
+        <p>Fedele, G. & D'Alfonso, L. (juin 2025). IEEE International Workshop on Metrology for Living Environment.</p>
+      </div>
+
+      <!-- ── BLOG / FORUM ── -->
+      <div class="source-card reveal delay-3" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://www.anthropic.com/engineering/multi-agent-research-system" target="_blank" rel="noopener">How we built our multi-agent research system — Anthropic Engineering</a></h4>
+        <p>Anthropic (2025). Retour d'expérience sur la conception d'un système de recherche multi-agents en production.</p>
+      </div>
+
+      <div class="source-card reveal delay-4" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://www.kore.ai/blog/choosing-the-right-orchestration-pattern-for-multi-agent-systems" target="_blank" rel="noopener">Choosing the right orchestration pattern for multi-agent systems — Kore.ai</a></h4>
+        <p>Tiwari, J. / Kore.ai (2025). Guide pratique de sélection de pattern d'orchestration selon le cas d'usage.</p>
+      </div>
+
       <div class="source-card reveal delay-1" data-type="blog">
         <span class="src-type src-blog">Blog</span>
-        <h4>The Rise of Agentic AI — a16z (2024)</h4>
-        <p>Rapport Andreessen Horowitz sur l'adoption industrielle et implications économiques.</p>
+        <h4><a href="https://cloud.google.com/blog/products/ai-machine-learning/build-and-manage-multi-system-agents-with-vertex-ai" target="_blank" rel="noopener">Build and manage multi-system agents with Vertex AI — Google Cloud</a></h4>
+        <p>Google Cloud (2025). Présentation de l'approche Google pour orchestrer des agents via Vertex AI.</p>
       </div>
-      <div class="source-card reveal delay-2" data-type="github">
-        <span class="src-type src-github">GitHub</span>
-        <h4>crewAIInc/crewAI</h4>
-        <p>Framework CrewAI : code source, documentation et exemples role-based (2024–2025).</p>
+
+      <div class="source-card reveal delay-2" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://www.getmaxim.ai/articles/5-essential-techniques-for-debugging-multi-agent-systems-effectively/" target="_blank" rel="noopener">5 Essential Techniques for Debugging Multi-Agent Systems Effectively — Maxim AI</a></h4>
+        <p>Maxim AI (nov. 2025). Techniques d'observabilité et de débogage appliquées aux systèmes multi-agents.</p>
       </div>
+
+      <div class="source-card reveal delay-3" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://www.montecarlodata.com/blog-what-is-agent-observability/" target="_blank" rel="noopener">What Is Agent Observability? Key Concepts, Use-Cases & Vendors — Monte Carlo Data</a></h4>
+        <p>Monte Carlo Data (oct. 2025). Vue d'ensemble de l'observabilité des agents IA en production.</p>
+      </div>
+
+      <div class="source-card reveal delay-4" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://blog.n8n.io/multi-agent-ai-systems" target="_blank" rel="noopener">Multi-agent system: Frameworks & step-by-step tutorial — n8n</a></h4>
+        <p>n8n (déc. 2025). Tutoriel complet sur les frameworks multi-agents et leur mise en œuvre pratique.</p>
+      </div>
+
+      <div class="source-card reveal delay-1" data-type="blog">
+        <span class="src-type src-blog">Blog</span>
+        <h4><a href="https://www.techaheadcorp.com/blog/ways-multi-agent-ai-fails-in-production/" target="_blank" rel="noopener">The Multi-Agent Reality Check: 7 Failure Modes When Pilots Hit Production — TechAhead</a></h4>
+        <p>TechAhead (2025). Analyse critique des modes d'échec des systèmes multi-agents lors du passage en production.</p>
+      </div>
+
+      <div class="source-card reveal delay-2" data-type="blog">
+        <span class="src-type src-blog">Forum</span>
+        <h4><a href="https://www.reddit.com/r/LangChain/comments/1nsm96e/how_do_you_actually_debug_multiagent_systems_in/" target="_blank" rel="noopener">How do you actually debug multi-agent systems in production? — r/LangChain</a></h4>
+        <p>FragrantBox4293 (sept. 2025). Discussion communautaire Reddit sur les pratiques de débogage en production.</p>
+      </div>
+
+      <!-- ── DOCS / SPECS ── -->
+      <div class="source-card reveal delay-3" data-type="doc">
+        <span class="src-type src-doc">Docs</span>
+        <h4><a href="https://www.speakeasy.com/mcp/using-mcp/ai-agents/architecture-patterns" target="_blank" rel="noopener">AI Agents: Architecture Patterns for MCP — Speakeasy</a></h4>
+        <p>Speakeasy (2025). Documentation technique des patterns architecturaux pour agents utilisant le protocole MCP.</p>
+      </div>
+
+      <div class="source-card reveal delay-4" data-type="doc">
+        <span class="src-type src-doc">Protocole</span>
+        <h4><a href="https://a2a-protocol.org/latest/#what-is-a2a-protocol" target="_blank" rel="noopener">A2A Protocol — Agent-to-Agent Protocol Specification</a></h4>
+        <p>Google et al. (2025). Spécification officielle du protocole A2A pour la communication directe entre agents.</p>
+      </div>
+
+      <!-- ── RAPPORTS ── -->
+      <div class="source-card reveal delay-1" data-type="report">
+        <span class="src-type src-report">Rapport</span>
+        <h4><a href="https://www.fortunebusinessinsights.com/agentic-ai-market" target="_blank" rel="noopener">Agentic AI Market Report — Fortune Business Insights</a></h4>
+        <p>Fortune Business Insights (2025). Analyse de marché : taille, croissance et dynamiques du secteur de l'IA agentique.</p>
+      </div>
+
+      <div class="source-card reveal delay-2" data-type="report">
+        <span class="src-type src-report">Rapport</span>
+        <h4><a href="https://www.palladyneai.com/products/ai-software/palladyne-pilot-ai-drones/" target="_blank" rel="noopener">Palladyne Pilot — AI Drone Orchestration System</a></h4>
+        <p>Palladyne AI (2025). Système d'orchestration d'essaims de drones autonomes avec IA embarquée.</p>
+      </div>
+
     </div>
   </div>
 </section>
 
 <!-- ═══════════════════ FOOTER ═══════════════════ -->
 <footer>
-  <div class="footer-logo">🤖 Orchestration des Agents IA</div>
+  <div class="footer-logo">Orchestration des Agents</div>
   <div class="footer-divider"></div>
   <p><strong>Veille Technologique MOS 4.4 · NTIC</strong><br>École Centrale de Lyon — Promotion 2026</p>
 </footer>
@@ -1699,6 +3282,39 @@ document.querySelectorAll('.filter-btn').forEach(btn=>{
     });
   });
 });
+
+/* ── CONCEPT SLIDER ── */
+(function(){
+  const slides=document.querySelectorAll('.cs-slide');
+  const dots=document.querySelectorAll('.cs-dot');
+  const bar=document.getElementById('csBar');
+  let cur=0,timer=null;
+  function goTo(n){
+    slides[cur].classList.remove('active');
+    dots[cur].classList.remove('active');
+    cur=(n+slides.length)%slides.length;
+    slides[cur].classList.add('active');
+    dots[cur].classList.add('active');
+    if(bar)bar.style.width=((cur+1)/slides.length*100)+'%';
+  }
+  function startAuto(){timer=setInterval(()=>goTo(cur+1),6000)}
+  function stopAuto(){clearInterval(timer)}
+  const prev=document.querySelector('.cs-prev');
+  const next=document.querySelector('.cs-next');
+  if(prev)prev.addEventListener('click',()=>{stopAuto();goTo(cur-1);startAuto()});
+  if(next)next.addEventListener('click',()=>{stopAuto();goTo(cur+1);startAuto()});
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{stopAuto();goTo(i);startAuto()}));
+  document.addEventListener('keydown',e=>{
+    const s=document.querySelector('.cs-section');
+    if(!s)return;
+    const r=s.getBoundingClientRect();
+    if(r.top>window.innerHeight||r.bottom<0)return;
+    if(e.key==='ArrowLeft'){stopAuto();goTo(cur-1);startAuto()}
+    if(e.key==='ArrowRight'){stopAuto();goTo(cur+1);startAuto()}
+  });
+  if(bar)bar.style.width='33.33%';
+  startAuto();
+})();
 
 /* ── ACTIVE NAV LINK ── */
 const sections=document.querySelectorAll('section[id]');
